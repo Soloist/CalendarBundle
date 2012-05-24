@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                        http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Soloist\Bundle\CalendarBundle\Entity\Calendar">
+        <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="title" type="string" column="title" length="255"/>
+        <field name="description" type="text" column="description"/>
+
+        <one-to-many field="events" target-entity="Event" mapped-by="calendar" />
+
+        <lifecycle-callbacks/>
+    </entity>
+</doctrine-mapping>
