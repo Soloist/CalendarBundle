@@ -1,0 +1,10 @@
+soloist.calendar:
+    calendar:
+        form:
+            title: Title
+            description: Description
+        entity:
+            title: title
+            description: description
+        singular: Calendar
+        plural: Calendars
