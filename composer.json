@@ -1,0 +1,33 @@
+{
+    "name": "soloist/calendar-bundle",
+    "description": "A bundle to handle events and show a calendar.",
+    "keywords": ["calendar"],
+    "autoload": {
+        "psr-0": { "Soloist\\Bundle\\CalendarBundle": "" }
+    },
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/symfony": "2.1.*",
+        "doctrine/orm": "2.2.0",
+        "doctrine/doctrine-bundle": "dev-master",
+        "twig/extensions": "dev-master",
+        "sensio/framework-extra-bundle": "dev-master",
+        "frequence-web/calendr-bundle": "dev-master",
+        "frequence-web/dashboard-bundle": "dev-master",
+    },
+
+    "authors": [
+        {
+            "name": "Nek (Maxime Veber)",
+            "email": "nek.dev+soloist@gmail.com",
+            "homepage": "http://nekland.fr"
+        },
+        {
+            "name": "Community contributions",
+            "homepage": "https://github.com/Soloist/CalendarBundle/contributors"
+        }
+    ],
+    "config": {
+        "bin-dir": "bin"
+    }
+}
