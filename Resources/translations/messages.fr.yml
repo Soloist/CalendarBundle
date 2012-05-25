@@ -41,4 +41,6 @@ soloist.calendar:
         menu:
             singular: Évènement
             plural: Évènements
+        singular: évènement
+        plural: évènements
 

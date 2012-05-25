@@ -126,6 +126,6 @@ class Calendar implements CrudableInterface
      */
     public function __toString()
     {
-        retutn $this->title;
+        return $this->title;
     }
 }

@@ -34,7 +34,7 @@ class AdminEventController extends ORMCrudController
                     'label' => $translator->trans('soloist.calendar.event.entity.description')
                 ),
             ),
-            'prefix'        => 'soloist_backend_event',
+            'prefix'        => 'soloist_admin_event',
             'singular'      => $translator->trans('soloist.calendar.event.singular'),
             'plural'        => $translator->trans('soloist.calendar.event.plural'),
             'repository'    => 'SoloistCalendarBundle:Event',

@@ -3,11 +3,12 @@
 namespace Soloist\Bundle\CalendarBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FrequenceWeb\Bundle\DashboardBundle\Crud\CrudableInterface;
 
 /**
  * Soloist\Bundle\CalendarBundle\Entity\Event
  */
-class Event
+class Event implements CrudableInterface
 {
     /**
      * @var integer $id
@@ -357,5 +358,16 @@ class Event
     public function getCalendar()
     {
         return $this->calendar;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     */
+    public function getRouteParams()
+    {
+        return array(
+            'id' => $this->id
+        );
     }
 }

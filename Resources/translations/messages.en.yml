@@ -28,3 +28,5 @@ soloist.calendar:
         menu:
             singular: Event
             plural: Events
+        singular: event
+        plural: events
