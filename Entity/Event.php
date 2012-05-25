@@ -94,6 +94,7 @@ class Event
     public function setStartDate($startDate)
     {
         $this->startDate = $startDate;
+
         return $this;
     }
 
@@ -116,6 +117,7 @@ class Event
     public function setStartTime($startTime)
     {
         $this->startTime = $startTime;
+
         return $this;
     }
 
@@ -138,6 +140,7 @@ class Event
     public function setEndDate($endDate)
     {
         $this->endDate = $endDate;
+
         return $this;
     }
 
@@ -160,6 +163,7 @@ class Event
     public function setEndTime($endTime)
     {
         $this->endTime = $endTime;
+
         return $this;
     }
 
@@ -182,6 +186,7 @@ class Event
     public function setTitle($title)
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -204,6 +209,7 @@ class Event
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -226,6 +232,7 @@ class Event
     public function setContactName($contactName)
     {
         $this->contactName = $contactName;
+
         return $this;
     }
 
@@ -248,6 +255,7 @@ class Event
     public function setContactEmail($contactEmail)
     {
         $this->contactEmail = $contactEmail;
+
         return $this;
     }
 
@@ -270,6 +278,7 @@ class Event
     public function setContactAddress($contactAddress)
     {
         $this->contactAddress = $contactAddress;
+
         return $this;
     }
 
@@ -292,6 +301,7 @@ class Event
     public function setContactCity($contactCity)
     {
         $this->contactCity = $contactCity;
+
         return $this;
     }
 
@@ -314,6 +324,7 @@ class Event
     public function setContactPostCode($contactPostCode)
     {
         $this->contactPostCode = $contactPostCode;
+
         return $this;
     }
 
@@ -334,6 +345,7 @@ class Event
     public function setCalendar(Calendar $calendar)
     {
         $this->calendar = $calendar;
+
         return $this;
     }
 

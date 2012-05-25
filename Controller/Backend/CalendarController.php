@@ -19,15 +19,21 @@ class CalendarController extends ORMCrudController
      */
     protected function getParams()
     {
+        $translator = $this->get('translator');
+
         return array(
             'display' => array(
                 'id'        => array('label' => 'N°'),
-                'title'      => array('label' => 'soloist.calendar.calendar.entity.title'),
-                'description'   => array('label' => 'soloist.calendar.calendar.entity.description')
+                'title'      => array(
+                    'label' => $translator->trans('soloist.calendar.calendar.entity.title')
+                ),
+                'description'   => array(
+                    'label' => $translator->trans('soloist.calendar.calendar.entity.description')
+                )
             ),
             'prefix'        => 'soloist_backend_calendar',
-            'singular'      => 'soloist.calendar.calendar.singular',
-            'plural'        => 'soloist.calendar.calendar.plural',
+            'singular'      => $translator->trans('soloist.calendar.calendar.singular'),
+            'plural'        => $translator->trans('soloist.calendar.calendar.plural'),
             'repository'    => 'SoloistCalendarBundle:Calendar',
             'form_type'     => new CalendarType,
             'class'         => new Calendar,

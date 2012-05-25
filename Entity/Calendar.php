@@ -50,6 +50,7 @@ class Calendar implements CrudableInterface
     public function setTitle($title)
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -72,6 +73,7 @@ class Calendar implements CrudableInterface
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -93,6 +95,7 @@ class Calendar implements CrudableInterface
     public function addEvent(Event $event)
     {
         $this->events[] = $event;
+
         return $this;
     }
 

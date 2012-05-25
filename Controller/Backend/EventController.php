@@ -14,16 +14,24 @@ class EventController extends ORMCrudController
      */
     protected function getParams()
     {
+        $translator = $this->get('translator');
+
         return array(
             'display' => array(
                 'id'        => array('label' => 'N°'),
-                'startDate'     => array('label' => 'soloist.calendar.event.entity.startDate'),
-                'title'      => array('label' => 'soloist.calendar.event.entity.title'),
-                'description'   => array('label' => 'soloist.calendar.event.entity.description'),
+                'startDate'     => array(
+                    'label' => $translator->trans('soloist.calendar.event.entity.startDate')
+                ),
+                'title'      => array(
+                    'label' => $translator->trans('soloist.calendar.event.entity.title')
+                ),
+                'description'   => array(
+                    'label' => $translator->trans('soloist.calendar.event.entity.description')
+                ),
             ),
             'prefix'        => 'soloist_backend_event',
-            'singular'      => 'soloist.calendar.event.singular',
-            'plural'        => 'soloist.calendar.event.plural',
+            'singular'      => $translator->trans('soloist.calendar.event.singular'),
+            'plural'        => $translator->trans('soloist.calendar.event.plural'),
             'repository'    => 'SoloistCalendarBundle:Event',
             'form_type'     => new EventType,
             'class'         => new Event,
