@@ -5,7 +5,7 @@ namespace Soloist\Bundle\CalendarBundle\Form\Type;
 use Symfony\Component\Form\AbstractType,
     Symfony\Component\Form\FormBuilder;
 
-class CalendarType extends AbstractType
+class EventType extends AbstractType
 {
     /**
      * Build the form

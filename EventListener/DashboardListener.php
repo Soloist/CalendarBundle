@@ -24,25 +24,24 @@ class DashboardListener
     public function onConfigureNewMenu(Configure $event)
     {
         $root = $event->getRoot();
-        $root->addChild($this->translator->trans('soloist.calendar.calendar.singular'), array(
-            'route'     => 'soloist_admin_calendar'
+        $root->addChild($this->translator->trans('soloist.calendar.calendar.menu.singular'), array(
+            'route'     => 'soloist_admin_calendar_new'
         ));
-        $root->addChild($this->translator->trans('soloist.calendar.event.singular'), array(
-            'route'     => 'soloist_admin_event'
+        $root->addChild($this->translator->trans('soloist.calendar.event.menu.singular'), array(
+            'route'     => 'soloist_admin_event_new'
         ));
     }
 
     public function onConfigureTopMenu(Configure $event)
     {
-        $nbOrders = $this->em->getRepository('TfhcSiteBundle:Order')->getNonClosedOrders();
 
         $root = $event->getRoot();
         $root->addChild(
-            $this->translator->trans('soloist.calendar.calendar.plural'),
+            $this->translator->trans('soloist.calendar.calendar.menu.plural'),
             array('route' => 'soloist_admin_calendar_index')
         );
         $root->addChild(
-            $this->translator->trans('soloist.calendar.event.plural'),
+            $this->translator->trans('soloist.calendar.event.menu.plural'),
             array('route' => 'soloist_admin_event_index')
         );
     }

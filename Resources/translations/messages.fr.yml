@@ -8,3 +8,37 @@ soloist.calendar:
             description: description
         singular: calendrier
         plural: calendriers
+        menu:
+            singular: Calendrier
+            plural: Calendriers
+    event:
+        entity:
+            title: Titre
+            description: Description
+            startDate: Date de début
+            startTime: Heure de début
+            endDate: Date de fin
+            endTime: Heure de fin
+            contactName: Nom du contact
+            contactEmail: Adresse email du contact
+            contactAddress: Adresse du contact
+            contactCity: Ville du contact
+            contactPostCode: Code postal du contact
+            calendar: Calendrier
+        form:
+            title: Titre
+            description: Description
+            startDate: Date de début
+            startTime: Heure de début
+            endDate: Date de fin
+            endTime: Heure de fin
+            contactName: Nom du contact
+            contactEmail: Adresse email du contact
+            contactAddress: Adresse du contact
+            contactCity: Ville du contact
+            contactPostCode: Code postal du contact
+            calendar: Calendrier
+        menu:
+            singular: Évènement
+            plural: Évènements
+

@@ -119,4 +119,13 @@ class Calendar implements CrudableInterface
             'id' => $this->id
         );
     }
+
+    /**
+     * Return the title
+     * @return string
+     */
+    public function __toString()
+    {
+        retutn $this->title;
+    }
 }
