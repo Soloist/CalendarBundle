@@ -1,11 +1,16 @@
 <?php
 
-namespace Soloist\Bundle\CalendarBundle\Controller\Backend;
+namespace Soloist\Bundle\CalendarBundle\Controller;
+
+use FrequenceWeb\Bundle\DashboardBundle\Controller\ORMCrudController;
+
+use Soloist\Bundle\CalendarBundle\Entity\Event,
+    Soloist\Bundle\CalendarBundle\Form\Type\EventType;
 
 /**
  * Admin management for events
  */
-class EventController extends ORMCrudController
+class AdminEventController extends ORMCrudController
 {
     /**
      * Return parameters for the dashboard bundle

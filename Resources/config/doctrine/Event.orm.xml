@@ -7,23 +7,23 @@
         <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
 
         <id name="id" type="integer" column="id">
-            <generator strategy="AUTO"/>
+            <generator strategy="AUTO" />
         </id>
 
-        <field name="startDate" type="date" column="startDate"/>
-        <field name="startTime" type="time" column="startTime"/>
-        <field name="endDate" type="date" column="endDate"/>
-        <field name="endTime" type="time" column="endTime"/>
-        <field name="title" type="string" column="title" length="255"/>
-        <field name="description" type="text" column="description"/>
-        <field name="contactName" type="string" column="contactName" length="255"/>
-        <field name="contactEmail" type="string" column="contactEmail" length="255"/>
-        <field name="contactAddress" type="string" column="contactAddress" length="255"/>
-        <field name="contactCity" type="string" column="contactCity" length="255"/>
-        <field name="contactPostCode" type="string" column="contactPostCode" length="255"/>
+        <field name="startDate" type="date" column="startDate" />
+        <field name="startTime" type="time" column="startTime" />
+        <field name="endDate" type="date" column="endDate" nullable="true" />
+        <field name="endTime" type="time" column="endTime" nullable="true" />
+        <field name="title" type="string" column="title" length="255" />
+        <field name="description" type="text" column="description" />
+        <field name="contactName" type="string" column="contactName" length="255" nullable="true" />
+        <field name="contactEmail" type="string" column="contactEmail" length="255" nullable="true" />
+        <field name="contactAddress" type="string" column="contactAddress" length="255" nullable="true" />
+        <field name="contactCity" type="string" column="contactCity" length="255" nullable="true" />
+        <field name="contactPostCode" type="string" column="contactPostCode" length="255" nullable="true" />
 
         <many-to-one field="calendar" target-entity="Calendar" />
 
-        <lifecycle-callbacks/>
+        <lifecycle-callbacks />
     </entity>
 </doctrine-mapping>

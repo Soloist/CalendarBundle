@@ -2,7 +2,7 @@
 
 namespace Soloist\Bundle\CalendarBundle\EventListener;
 
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 
 use FrequenceWeb\Bundle\DashboardBundle\Menu\Event\Configure;
 
@@ -11,26 +11,24 @@ use Doctrine\ORM\EntityManager;
 class DashboardListener
 {
     /**
-     * @var \Symfony\Component\HttpFoundation\Request
+     * @var \Symfony\Bundle\FrameworkBundle\Translation\Translator
      */
-    private $request;
+    private $translator;
 
-    private $em;
 
-    public function __construct(Request $request, EntityManager $em)
+    public function __construct(Translator $translator)
     {
-        $this->request = $request;
-        $this->em = $em;
+        $this->translator = $translator;
     }
 
     public function onConfigureNewMenu(Configure $event)
     {
         $root = $event->getRoot();
-        $root->addChild('Catégorie', array(
-            'route'     => 'tfhc_admin_category_new'
+        $root->addChild($this->translator->trans('soloist.calendar.calendar.singular'), array(
+            'route'     => 'soloist_admin_calendar'
         ));
-        $root->addChild('Produit', array(
-            'route'     => 'tfhc_admin_product_new'
+        $root->addChild($this->translator->trans('soloist.calendar.event.singular'), array(
+            'route'     => 'soloist_admin_event'
         ));
     }
 
@@ -39,10 +37,13 @@ class DashboardListener
         $nbOrders = $this->em->getRepository('TfhcSiteBundle:Order')->getNonClosedOrders();
 
         $root = $event->getRoot();
-        $root->addChild('Catégories', array('route' => 'tfhc_admin_category_index'));
-        $root->addChild('Produits', array('route' => 'tfhc_admin_product_index'));
-        $root->addChild('Faq', array('route' => 'tfhc_admin_faq_index'));
-        $root->addChild('Commandes (' . $nbOrders . ')', array('route' => 'sylius_sales_backend_order_list'));
-        $root->addChild('Changer de langue (actuellement : '.$this->request->getLocale().')', array('route' => 'language_switch'));
+        $root->addChild(
+            $this->translator->trans('soloist.calendar.calendar.plural'),
+            array('route' => 'soloist_admin_calendar_index')
+        );
+        $root->addChild(
+            $this->translator->trans('soloist.calendar.event.plural'),
+            array('route' => 'soloist_admin_event_index')
+        );
     }
 }

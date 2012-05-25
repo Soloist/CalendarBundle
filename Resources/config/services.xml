@@ -4,17 +4,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <parameters>
-        <parameter key="soloist_calendar.example.class">Soloist\Bundle\CalendarBundle\Example</parameter>
+        <parameter key="soloist.calendar.listener.menu.class">Soloist\Bundle\CalendarBundle\EventListener\DashboardListener</parameter>
     </parameters>
 
     <services>
-        <service id="soloist_calendar.example" class="%soloist_calendar.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="soloist.calendar.listener.menu" class="%soloist.calendar.listener.menu.class%" scope="request">
+            <argument type="service" id="translator" />
+            <tag name="kernel.event_listener" event="fw_dashboard.configure.menu.new"  method="onConfigureNewMenu" />
+            <tag name="kernel.event_listener" event="fw_dashboard.configure.menu.top"  method="onConfigureTopMenu" />
         </service>
     </services>
-    -->
+
 </container>
