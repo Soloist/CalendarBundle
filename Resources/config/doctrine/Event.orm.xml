@@ -11,7 +11,7 @@
         </id>
 
         <field name="startDate" type="date" column="startDate" />
-        <field name="startTime" type="time" column="startTime" />
+        <field name="startTime" type="time" column="startTime" nullable="true" />
         <field name="endDate" type="date" column="endDate" nullable="true" />
         <field name="endTime" type="time" column="endTime" nullable="true" />
         <field name="title" type="string" column="title" length="255" />
