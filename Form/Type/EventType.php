@@ -3,17 +3,17 @@
 namespace Soloist\Bundle\CalendarBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType,
-    Symfony\Component\Form\FormBuilder;
+    Symfony\Component\Form\FormBuilderInterface;
 
 class EventType extends AbstractType
 {
     /**
      * Build the form
-     * @param  FormBuilder $builder
+     * @param  FormBuilderInterface $builder
      * @param  array       $options
      *
      */
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('title', null, array('label' => 'soloist.calendar.event.form.title'))

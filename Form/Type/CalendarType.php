@@ -9,7 +9,7 @@ class CalendarType extends AbstractType
 {
     /**
      * Build the form
-     * @param  FormBuilder $builder
+     * @param  FormBuilderInterface $builder
      * @param  array       $options
      *
      */
