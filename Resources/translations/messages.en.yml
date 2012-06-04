@@ -12,6 +12,19 @@ soloist.calendar:
             singular: Calendar
             plural: Calendars
     event:
+        entity:
+            title: Title
+            description: Description
+            startDate: Start date
+            startTime: Start time
+            endDate: End date
+            endTime: End time
+            contactName: Contact name
+            contactEmail: Contact email
+            contactAddress: Contact address
+            contactCity: Contact city
+            contactPostCode: Contact postcode
+            calendar: Calendar
         form:
             title: Title
             description: Description
@@ -26,7 +39,9 @@ soloist.calendar:
             contactPostCode: Contact postcode
             calendar: Calendar
         menu:
-            singular: Event
-            plural: Events
-        singular: event
-        plural: events
+            singular: Évènement
+            plural: Évènements
+        singular: évènement
+        plural: évènements
+
+    title: Calendar

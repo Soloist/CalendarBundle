@@ -4,11 +4,12 @@ namespace Soloist\Bundle\CalendarBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FrequenceWeb\Bundle\DashboardBundle\Crud\CrudableInterface;
+use CalendR\Event\AbstractEvent;
 
 /**
  * Soloist\Bundle\CalendarBundle\Entity\Event
  */
-class Event implements CrudableInterface
+class Event extends AbstractEvent implements CrudableInterface
 {
     /**
      * @var integer $id
@@ -74,7 +75,6 @@ class Event implements CrudableInterface
      * @var Calendar $calendar
      */
     private $calendar;
-
 
     /**
      * Get id
@@ -369,5 +369,38 @@ class Event implements CrudableInterface
         return array(
             'id' => $this->id
         );
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUid()
+    {
+        return $this->id;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBegin()
+    {
+        $date = clone $this->startDate;
+        if ($time = $this->startTime {
+            $date->setTime($time->format('H'), $time->format('i'));
+        }
+        return $date;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEnd()
+    {
+        $date = clone $this->endDate;
+        if (!is_null($date) && $time = $this->endTime) {
+            $date->setTime($time->format('H'), $time->format('i'));
+        }
+
+        return $date;
     }
 }
