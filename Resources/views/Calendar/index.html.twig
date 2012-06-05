@@ -1,5 +1,6 @@
 {% extends 'SoloistBlogBundle::layout.html.twig' %}
-{% block %}
+{% block soloist_calendar_layout %}
+<h1>{% trans %}soloist.calendar.title_list{% endtrans %}</h1>
 <ul>
     {% for calendar in calendars %}
         <li class="calendar">
