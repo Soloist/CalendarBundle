@@ -4,27 +4,27 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="soloist_admin_calendar_index" pattern="/">
+    <route id="soloist_calendar_admin_calendar_index" pattern="/">
         <default key="_controller">SoloistCalendarBundle:AdminCalendar:index</default>
     </route>
 
-    <route id="soloist_admin_calendar_new" pattern="/new">
+    <route id="soloist_calendar_admin_calendar_new" pattern="/new">
         <default key="_controller">SoloistCalendarBundle:AdminCalendar:new</default>
     </route>
 
-    <route id="soloist_admin_calendar_create" pattern="/create">
+    <route id="soloist_calendar_admin_calendar_create" pattern="/create">
         <default key="_controller">SoloistCalendarBundle:AdminCalendar:create</default>
     </route>
 
-    <route id="soloist_admin_calendar_edit" pattern="/edit/{id}">
+    <route id="soloist_calendar_admin_calendar_edit" pattern="/edit/{id}">
         <default key="_controller">SoloistCalendarBundle:AdminCalendar:edit</default>
     </route>
 
-    <route id="soloist_admin_calendar_update" pattern="/update/{id}">
+    <route id="soloist_calendar_admin_calendar_update" pattern="/update/{id}">
         <default key="_controller">SoloistCalendarBundle:AdminCalendar:update</default>
     </route>
 
-    <route id="soloist_admin_calendar_delete" pattern="/delete/{id}">
+    <route id="soloist_calendar_admin_calendar_delete" pattern="/delete/{id}">
         <default key="_controller">SoloistCalendarBundle:AdminCalendar:delete</default>
     </route>
 

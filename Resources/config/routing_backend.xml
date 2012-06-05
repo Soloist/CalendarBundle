@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <import resource="@SoloistCalendarBundle/Resources/config/routing/admin_calendar.xml" prefix="/admin/calendar" />
-    <import resource="@SoloistCalendarBundle/Resources/config/routing/admin_event.xml" prefix="/admin/event" />
+    <import resource="@SoloistCalendarBundle/Resources/config/routing/admin_calendar.xml" prefix="/calendar" />
+    <import resource="@SoloistCalendarBundle/Resources/config/routing/admin_event.xml" prefix="/event" />
 
 </routes>
