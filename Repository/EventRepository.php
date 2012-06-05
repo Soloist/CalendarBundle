@@ -15,9 +15,7 @@ class EventRepository extends EntityRepository implements ProviderInterface
     public function getEvents(\DateTime $begin, \DateTime $end, array $options = array())
     {
         $beginDate = sprintf("'%s'", $begin->format('Y-m-d'));
-        $beginTime = sprintf("'%s'", $begin->format('H:i'));
         $endDate   = sprintf("'%s'", $end->format('Y-m-d'));
-        $endTime   = sprintf("'%s'", $end->format('H:i'));
 
         $qb = $this->createQueryBuilder('e');
 
@@ -26,11 +24,32 @@ class EventRepository extends EntityRepository implements ProviderInterface
         }
 
         $qb->where(
-            $qb->expr()->andX(
-                $qb->expr()->gt('e.startDate', $beginDate),
-                $qb->expr()->gt('e.startTime', $beginTime),
-                $qb->expr()->lt('e.endDate', $endDate),
-                $qb->expr()->lt('e.endTime', $endTime)
+            $qb->expr()->orX(
+                // Period in event
+                $qb->expr()->andX(
+                    $qb->expr()->lte('e.startDate', $beginDate),
+                    $qb->expr()->gte('e.endDate', $endDate)
+                ),
+                // Event in period
+                $qb->expr()->andX(
+                    $qb->expr()->gte('e.startDate', $beginDate),
+                    $qb->expr()->lt('e.endDate', $endDate)
+                ),
+                // Event begins during period
+                $qb->expr()->andX(
+                    $qb->expr()->lt('e.startDate', $endDate),
+                    $qb->expr()->gte('e.startDate', $beginDate)
+                ),
+                // Event ends during period
+                $qb->expr()->andX(
+                    $qb->expr()->gte('e.endDate', $beginDate),
+                    $qb->expr()->lt('e.endDate', $endDate)
+                ),
+                // Event without endDate
+                $qb->expr()->andX(
+                    $qb->expr()->gt('e.startDate', $beginDate),
+                    $qb->expr()->lt('e.endDate', $beginDate)
+                )
             )
         );
 
