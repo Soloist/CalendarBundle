@@ -3,7 +3,6 @@
 namespace Soloist\Bundle\CalendarBundle\Repository;
 
 use CalendR\Event\Provider\ProviderInterface;
-
 use Doctrine\ORM\EntityRepository,
     Doctrine\ORM\Query\Expr;
 
