@@ -1,0 +1,23 @@
+<thead>
+    <tr>
+        <th>
+            <a href="{{ path('soloist_calendar_show', {
+                year: month.begin.modify('-1 day').format('Y'),
+                month: month.begin.modify('-1 day').format('n')
+            }) }}">
+                &lt;
+            </a>
+        </th>
+        <th colspan="5">
+            {{ month.begin | format_date('l') }}
+        </th>
+        <th>
+            <a href="{{ path('soloist_calendar_show', {
+                year: month.begin.modify('+1 day').format('Y'),
+                month: month.begin.modify('+1 day').format('n')
+            }) }}">
+                &gt;
+            </a>
+        </th>
+    </tr>
+<thead>

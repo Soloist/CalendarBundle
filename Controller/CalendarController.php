@@ -8,7 +8,7 @@ use Soloist\Bundle\CalendarBundle\Entity\Calendar;
 class CalendarController extends Controller
 {
     /**
-     * Show calenders
+     * Show a list of all calendars available
      *
      * @return Response
      */
@@ -21,9 +21,41 @@ class CalendarController extends Controller
         return $this->render('SoloistCalendarBundle:Calendar:index.html.twig');
     }
 
-    public function showAction(Calendar $calendar)
+    /**
+     * Show a month formated as a calendar
+     * Show only events who are avalaible on the precised calendar
+     *
+     * @param  Calendar $calendar
+     * @param  integer   $year
+     * @param  integer   $month
+     * @return Response
+     */
+    public function showAction(Calendar $calendar, $year, $month)
     {
-        $events = $factory->getEvents($month);
+        $month = $this->get('calendr')->getMonth($year, $month);
+
+        $this->render('SoloistCalendarBundle:Calendar:show.html.twig', array(
+            'month' => $month,
+            'options' => array('id' => $calendar->getId())
+        ));
+    }
+
+    /**
+     * Show a month formated as a calendar
+     * Show all events
+     *
+     * @param  integer $year
+     * @param  integer $month
+     * @return Response
+     */
+    public function showAllAction($year, $month)
+    {
+        $month = $this->get('calendr')->getMonth($year, $month);
+
+        $this->render('SoloistCalendarBundle:Calendar:show.html.twig',array(
+            'month' => $month,
+            'options' => array()
+        ));
     }
 
 }
