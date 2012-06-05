@@ -1,4 +1,6 @@
 soloist.calendar:
+    menu:
+        group: Calendar
     calendar:
         form:
             title: Title

@@ -22,22 +22,22 @@ class AdminCalendarController extends ORMCrudController
         $translator = $this->get('translator');
 
         return array(
-            'display' => array(
-                'id'        => array('label' => 'N°'),
-                'title'      => array(
+            'display'    => array(
+                'id'          => array('label' => 'N°'),
+                'title'       => array(
                     'label' => $translator->trans('soloist.calendar.calendar.entity.title')
                 ),
-                'description'   => array(
+                'description' => array(
                     'label' => $translator->trans('soloist.calendar.calendar.entity.description')
                 )
             ),
-            'prefix'        => 'soloist_calendar_admin_calendar',
-            'singular'      => $translator->trans('soloist.calendar.calendar.singular'),
-            'plural'        => $translator->trans('soloist.calendar.calendar.plural'),
-            'repository'    => 'SoloistCalendarBundle:Calendar',
-            'form_type'     => new CalendarType,
-            'class'         => new Calendar,
-            'sortable'       => true
+            'prefix'     => 'soloist_calendar_admin_calendar',
+            'singular'   => $translator->trans('soloist.calendar.calendar.singular'),
+            'plural'     => $translator->trans('soloist.calendar.calendar.plural'),
+            'repository' => 'SoloistCalendarBundle:Calendar',
+            'form_type'  => new CalendarType,
+            'class'      => new Calendar,
+            'sortable'   => true
         );
     }
 

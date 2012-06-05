@@ -34,13 +34,13 @@ class DashboardListener
 
     public function onConfigureTopMenu(Configure $event)
     {
-
         $root = $event->getRoot();
-        $root->addChild(
+        $calendar = $root->addChild($this->translator->trans('soloist.calendar.menu.group'));
+        $calendar->addChild(
             $this->translator->trans('soloist.calendar.calendar.menu.plural'),
             array('route' => 'soloist_calendar_admin_calendar_index')
         );
-        $root->addChild(
+        $calendar->addChild(
             $this->translator->trans('soloist.calendar.event.menu.plural'),
             array('route' => 'soloist_calendar_admin_event_index')
         );

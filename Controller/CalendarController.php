@@ -35,7 +35,7 @@ class CalendarController extends Controller
         $month = $this->get('calendr')->getMonth($year, $month);
 
         $this->render('SoloistCalendarBundle:Calendar:show.html.twig', array(
-            'month' => $month,
+            'month'   => $month,
             'options' => array('id' => $calendar->getId())
         ));
     }
@@ -53,7 +53,7 @@ class CalendarController extends Controller
         $month = $this->get('calendr')->getMonth($year, $month);
 
         $this->render('SoloistCalendarBundle:Calendar:show.html.twig',array(
-            'month' => $month,
+            'month'   => $month,
             'options' => array()
         ));
     }

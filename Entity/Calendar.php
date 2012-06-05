@@ -101,6 +101,7 @@ class Calendar implements CrudableInterface
     public function addEvent(Event $event)
     {
         $this->events[] = $event;
+        $event->setCalendar($this);
 
         return $this;
     }

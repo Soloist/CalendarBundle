@@ -2,8 +2,8 @@
 
 namespace Soloist\Bundle\CalendarBundle\Repository;
 
-use Doctrine\ORM\EntityRepository;
 use CalendR\Event\Provider\ProviderInterface;
+use Doctrine\ORM\EntityRepository;
 
 class EventRepository extends EntityRepository implements ProviderInterface
 {
@@ -14,8 +14,8 @@ class EventRepository extends EntityRepository implements ProviderInterface
     {
         $beginDate = sprintf("'%s'", $begin->format('Y-m-d'));
         $beginTime = sprintf("'%s'", $begin->format('H:i'));
-        $endDate = sprintf("'%s'", $end->format('Y-m-d'));
-        $endTime = sprintf("'%s'", $end->format('H:i'));
+        $endDate   = sprintf("'%s'", $end->format('Y-m-d'));
+        $endTime   = sprintf("'%s'", $end->format('H:i'));
 
         $qb = $this->createQueryBuilder('e');
 
