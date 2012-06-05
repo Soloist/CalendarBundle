@@ -13,23 +13,29 @@ class Calendar implements CrudableInterface
     /**
      * @var integer $id
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string $title
      */
-    private $title;
+    protected $title;
 
     /**
      * @var text $description
      */
-    private $description;
+    protected $description;
 
     /**
      *
      * @var ArrayCollection $events
      */
-    private $events;
+    protected $events;
+
+    /**
+     * Title slug
+     * @var string
+     */
+    protected $slug;
 
     /**
      * Get id
@@ -107,6 +113,29 @@ class Calendar implements CrudableInterface
     public function getEvents()
     {
         return $this->events;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Calendar
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**

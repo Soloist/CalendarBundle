@@ -14,67 +14,73 @@ class Event extends AbstractEvent implements CrudableInterface
     /**
      * @var integer $id
      */
-    private $id;
+    protected $id;
 
     /**
      * @var date $startDate
      */
-    private $startDate;
+    protected $startDate;
 
     /**
      * @var time $startTime
      */
-    private $startTime;
+    protected $startTime;
 
     /**
      * @var date $endDate
      */
-    private $endDate;
+    protected $endDate;
 
     /**
      * @var time $endTime
      */
-    private $endTime;
+    protected $endTime;
 
     /**
      * @var string $title
      */
-    private $title;
+    protected $title;
 
     /**
      * @var text $description
      */
-    private $description;
+    protected $description;
 
     /**
      * @var string $contactName
      */
-    private $contactName;
+    protected $contactName;
 
     /**
      * @var string $contactEmail
      */
-    private $contactEmail;
+    protected $contactEmail;
 
     /**
      * @var string $contactAddress
      */
-    private $contactAddress;
+    protected $contactAddress;
 
     /**
      * @var string $contactCity
      */
-    private $contactCity;
+    protected $contactCity;
 
     /**
      * @var string $contactPostCode
      */
-    private $contactPostCode;
+    protected $contactPostCode;
+
+    /**
+     * Slug
+     * @var string
+     */
+    protected $slug;
 
     /**
      * @var Calendar $calendar
      */
-    private $calendar;
+    protected $calendar;
 
     /**
      * Get id
@@ -340,6 +346,29 @@ class Event extends AbstractEvent implements CrudableInterface
     }
 
     /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Calendar
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
      * Set calendar
      * @param Calendar $calendar
      */
@@ -385,7 +414,7 @@ class Event extends AbstractEvent implements CrudableInterface
     public function getBegin()
     {
         $date = clone $this->startDate;
-        if ($time = $this->startTime {
+        if ($time = $this->startTime) {
             $date->setTime($time->format('H'), $time->format('i'));
         }
         return $date;
