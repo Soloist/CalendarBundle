@@ -8,6 +8,7 @@
     <parameters>
         <parameter key="soloist.calendar.listener.menu.class">Soloist\Bundle\CalendarBundle\EventListener\DashboardListener</parameter>
         <parameter key="soloist.calendar.calendr.provider.class">Soloist\Bundle\CalendarBundle\Repository\EventRepository</parameter>
+        <parameter key="soloist.calendar.listener.block.class">Soloist\Bundle\CalendarBundle\EventListener\BlockListener</parameter>
     </parameters>
 
     <services>
@@ -25,6 +26,11 @@
                 factory-method="getRepository">
             <argument>SoloistCalendarBundle:Event</argument>
             <tag name="calendr.event_provider" />
+        </service>
+
+        <service id="soloist.calendar.listener.block" class="%soloist.calendar.listener.block.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <tag name="kernel.event_listener" event="soloist_block.request_types"  method="onRequestTypes" />
         </service>
     </services>
 
