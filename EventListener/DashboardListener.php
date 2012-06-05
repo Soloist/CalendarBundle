@@ -25,10 +25,10 @@ class DashboardListener
     {
         $root = $event->getRoot();
         $root->addChild($this->translator->trans('soloist.calendar.calendar.menu.singular'), array(
-            'route'     => 'soloist_admin_calendar_new'
+            'route'     => 'soloist_calendar_admin_calendar_new'
         ));
         $root->addChild($this->translator->trans('soloist.calendar.event.menu.singular'), array(
-            'route'     => 'soloist_admin_event_new'
+            'route'     => 'soloist_calendar_admin_event_new'
         ));
     }
 
@@ -38,11 +38,11 @@ class DashboardListener
         $root = $event->getRoot();
         $root->addChild(
             $this->translator->trans('soloist.calendar.calendar.menu.plural'),
-            array('route' => 'soloist_admin_calendar_index')
+            array('route' => 'soloist_calendar_admin_calendar_index')
         );
         $root->addChild(
             $this->translator->trans('soloist.calendar.event.menu.plural'),
-            array('route' => 'soloist_admin_event_index')
+            array('route' => 'soloist_calendar_admin_event_index')
         );
     }
 }
