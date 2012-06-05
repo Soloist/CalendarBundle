@@ -1,21 +1,37 @@
 <thead>
     <tr>
         <th>
-            <a href="{{ path('soloist_calendar_show', {
-                year: month.begin.modify('-1 day').format('Y'),
-                month: month.begin.modify('-1 day').format('n')
+            {% if calendar is defined %}
+            <a href="{{ path('soloist_calendar_calendar_show', {
+                'year': month.previous.begin.format('Y'),
+                'month': month.previous.begin.format('n'),
+                'slug': calendar.slug
             }) }}">
+            {% else %}
+            <a href="{{ path('soloist_calendar_calendar_show_all', {
+                'year': month.previous.begin.format('Y'),
+                'month': month.previous.begin.format('n')
+            }) }}">
+            {% endif %}
                 &lt;
             </a>
         </th>
         <th colspan="5">
-            {{ month.begin | format_date('l') }}
+            {{ month.begin | format_date('MMM') }}
         </th>
         <th>
-            <a href="{{ path('soloist_calendar_show', {
-                year: month.begin.modify('+1 day').format('Y'),
-                month: month.begin.modify('+1 day').format('n')
+            {% if calendar is defined %}
+            <a href="{{ path('soloist_calendar_calendar_show', {
+                'year': month.getNext().begin.format('Y'),
+                'month': month.getNext().begin.format('n'),
+                'slug': calendar.slug
             }) }}">
+            {% else %}
+            <a href="{{ path('soloist_calendar_calendar_show_all', {
+                'year': month.getNext().begin.format('Y'),
+                'month': month.getNext().begin.format('n')
+            }) }}">
+            {% endif %}
                 &gt;
             </a>
         </th>

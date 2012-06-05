@@ -1,14 +1,20 @@
-{% extends 'SoloistBlogBundle::layout.html.twig' %}
+{% extends 'SoloistCalendarBundle::layout.html.twig' %}
 {% block soloist_calendar_layout %}
-<h1>{{ calendar.title }}</h1>
+<h1>
+    {% if calendar is defined %}
+        {{ calendar.title }}
+    {% else %}
+        {% trans %}soloist.calendar.all_events{% endtrans %}
+    {% endif %}
+</h1>
 <table class="soloist-calendar">
-    {% include 'SoloistCalendarBundle:Calendar:calendar_header.html.twig' %}
+    {% include 'SoloistCalendarBundle:Default:calendar_header.html.twig' %}
     <tbody>
         {% for week in month %}
             <tr>
                 {% for day in week %}
-                    <td {% if not month.contains(day.beging) %}class="soloist-calendar-othermonth"{% endif %}>
-                        {% if month.contains(day) %}
+                    <td>
+                        {% if month.contains(day.begin) %}
                             {{ day.begin.format('d') }}
                             <ul class="soloist-calendar-events">
                                 {% for events in calendr_events(day, options) %}

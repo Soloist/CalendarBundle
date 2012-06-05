@@ -1,12 +1,13 @@
-{% extends 'SoloistBlogBundle::layout.html.twig' %}
+{% extends 'SoloistCalendarBundle::layout.html.twig' %}
 {% block soloist_calendar_layout %}
 <h1>{% trans %}soloist.calendar.title_list{% endtrans %}</h1>
 <ul>
     {% for calendar in calendars %}
         <li class="calendar">
-            <a href="{{ path('soloist_calendar_calendar_show') }}">
-                {% trans %}soloist.calendar.title{% endtrans %}: {{ calendar.name }}
+            <a href="{{ path('soloist_calendar_calendar_show', {'slug': calendar.slug}) }}">
+                {% trans %}soloist.calendar.title{% endtrans %}: {{ calendar.title }}
             </a>
+            {{ calendar.description | raw }}
         </li>
     {% endfor %}
 </ul>

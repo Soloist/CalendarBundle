@@ -6,7 +6,7 @@
 
 
     <route id="soloist_calendar_calendar_index" pattern="/list-calendars.html">
-        <default key="_controller">SoloistCalendarBundle:Default:index</default>
+        <default key="_controller">SoloistCalendarBundle:Default:listCalendars</default>
     </route>
 
 </routes>

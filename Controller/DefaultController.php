@@ -36,10 +36,16 @@ class DefaultController extends Controller
     {
         $month = $this->get('calendr')->getMonth($year, $month);
 
+        $options = array();
+        if(!is_null($calendar)) {
+            $options['id'] = $calendar->getId();
+        }
 
-        return $this->render('SoloistCalendarBundle:Default:show.html.twig', array(
-            'month' => $month,
-            'options' => array('id' => $calendar->getId())
+
+        return $this->render('SoloistCalendarBundle:Default:showMonth.html.twig', array(
+            'month'     => $month,
+            'options'   => $options,
+            'calendar'  => $calendar
         ));
     }
 
@@ -51,6 +57,8 @@ class DefaultController extends Controller
      */
     public function showEventAction(Event $event)
     {
-        return $this->render('SoloistCalendarBundle:Default:showEvent.html.twig', array('event' => $event));
+        return $this->render('SoloistCalendarBundle:Default:showEvent.html.twig', array(
+            'event'     => $event
+        ));
     }
 }

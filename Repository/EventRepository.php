@@ -22,7 +22,7 @@ class EventRepository extends EntityRepository implements ProviderInterface
         $qb = $this->createQueryBuilder('e');
 
         if(!empty($options['id']) && is_integer($options['id'])) {
-            $qb->innerJoin('e.calendar', 'c', Expr\Join::ON, 'c.id = '.$options['id']);
+            $qb->where('e.calendar = ' . $options['id']);
         }
 
         $qb->where(
@@ -33,6 +33,7 @@ class EventRepository extends EntityRepository implements ProviderInterface
                 $qb->expr()->lt('e.endTime', $endTime)
             )
         );
+
 
         return $qb->getQuery()->getResult();
 
