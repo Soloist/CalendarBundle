@@ -5,8 +5,8 @@
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
 
-    <route id="soloist_calendar_calendar_index" pattern="/list-calendars.html">
-        <default key="_controller">SoloistCalendarBundle:Default:index</default>
+    <route id="soloist_calendar_event_show" pattern="/show/{slug}.html">
+        <default key="_controller">SoloistCalendarBundle:Default:showEvent</default>
     </route>
 
 </routes>

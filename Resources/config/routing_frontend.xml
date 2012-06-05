@@ -5,6 +5,7 @@
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
     <import resource="@SoloistCalendarBundle/Resources/config/routing/calendar.xml" prefix="/calendar" />
+    <import resource="@SoloistCalendarBundle/Resources/config/routing/event.xml" prefix="/event" />
 
     <!-- needed for dynamic parameters -->
     <import resource="@SoloistCalendarBundle/Resources/config/routing/calendar_show.php" prefix="/calendar" />
