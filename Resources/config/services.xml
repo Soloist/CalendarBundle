@@ -2,11 +2,12 @@
 
 <container xmlns="http://symfony.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    xsi:schemaLocation="http://symfony.com/schema/dic/services
+                        http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
         <parameter key="soloist.calendar.listener.menu.class">Soloist\Bundle\CalendarBundle\EventListener\DashboardListener</parameter>
-        <parameter key="soloist.calendar.calendr.provider.class">Soloist\Bundle\CalendarBundle\Repository\CalendarRepository</paramter>
+        <parameter key="soloist.calendar.calendr.provider.class">Soloist\Bundle\CalendarBundle\Repository\CalendarRepository</parameter>
     </parameters>
 
     <services>
@@ -19,9 +20,9 @@
 
         <!-- Calendar provider service -->
         <service id="soloist.calendar.calendr.provider"
-                class="%soloist.calendar.calendr.provider.class%">
-            <factory_service>doctrine.orm.default_entity_manager</factory_service>
-            <factory_method>getRepository</factory_method>
+                class="%soloist.calendar.calendr.provider.class%"
+                factory-service="doctrine.orm.default_entity_manager"
+                factory-method="getRepository">
             <argument>SoloistCalendarBundle:Calendar</argument>
             <tag name="calendr.event_provider" />
         </service>
