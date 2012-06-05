@@ -4,8 +4,8 @@ soloist.calendar:
             title: Titre
             description: Description
         entity:
-            title: titre
-            description: description
+            title: Titre
+            description: Description
         singular: calendrier
         plural: calendriers
         menu:
@@ -45,3 +45,4 @@ soloist.calendar:
         plural: évènements
 
     title: Calendrier
+    title_list: Liste des calendriers disponibles

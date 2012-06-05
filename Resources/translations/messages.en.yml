@@ -4,8 +4,8 @@ soloist.calendar:
             title: Title
             description: Description
         entity:
-            title: title
-            description: description
+            title: Title
+            description: Description
         singular: calendar
         plural: calendars
         menu:
@@ -39,9 +39,10 @@ soloist.calendar:
             contactPostCode: Contact postcode
             calendar: Calendar
         menu:
-            singular: Évènement
-            plural: Évènements
-        singular: évènement
-        plural: évènements
+            singular: Event
+            plural: Events
+        singular: event
+        plural: events
 
     title: Calendar
+    title_list: Avalaible calendars list
