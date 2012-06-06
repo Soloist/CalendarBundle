@@ -19,9 +19,18 @@ class EventType extends AbstractType
             ->add('title',            null,            array('label' => 'soloist.calendar.event.form.title'))
             ->add('calendar',         null,            array('label' => 'soloist.calendar.event.form.calendar'))
             ->add('startDate',       'fw_jquery_date', array('label' => 'soloist.calendar.event.form.startDate'))
-            ->add('startTime',       'fw_jquery_time', array('label' => 'soloist.calendar.event.form.startTime'))
-            ->add('endDate',         'fw_jquery_date', array('label' => 'soloist.calendar.event.form.endDate'))
-            ->add('endTime',         'fw_jquery_time', array('label' => 'soloist.calendar.event.form.endTime'))
+            ->add('startTime',       'fw_jquery_time', array(
+                'label'         => 'soloist.calendar.event.form.startTime',
+                'empty_value'   => '',
+            ))
+            ->add('endDate',         'fw_jquery_date', array(
+                'label'         => 'soloist.calendar.event.form.endDate',
+                'empty_value'   => '',
+            ))
+            ->add('endTime',         'fw_jquery_time', array(
+                'label'         => 'soloist.calendar.event.form.endTime',
+                'empty_value'   => '',
+            ))
             ->add('description',      null,            array('label' => 'soloist.calendar.event.form.description'))
             ->add('contactName',     null,             array('label' => 'soloist.calendar.event.form.contactName'))
             ->add('contactEmail',    null,             array('label' => 'soloist.calendar.event.form.contactEmail'))

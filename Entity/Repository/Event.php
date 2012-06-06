@@ -26,30 +26,20 @@ class Event extends EntityRepository implements ProviderInterface
 
         $qb->where(
             $qb->expr()->orX(
+                // Start date in period
+                $qb->expr()->andX(
+                    $qb->expr()->gte('e.startDate', $beginDate),
+                    $qb->expr()->lte('e.startDate', $endDate)
+                ),
+                // End event date in period
+                $qb->expr()->andX(
+                    $qb->expr()->gte('e.endDate', $beginDate),
+                    $qb->expr()->lte('e.endDate', $endDate)
+                ),
                 // Period in event
                 $qb->expr()->andX(
                     $qb->expr()->lte('e.startDate', $beginDate),
                     $qb->expr()->gte('e.endDate', $endDate)
-                ),
-                // Event in period
-                $qb->expr()->andX(
-                    $qb->expr()->gte('e.startDate', $beginDate),
-                    $qb->expr()->lt('e.endDate', $endDate)
-                ),
-                // Event begins during period
-                $qb->expr()->andX(
-                    $qb->expr()->lt('e.startDate', $endDate),
-                    $qb->expr()->gte('e.startDate', $beginDate)
-                ),
-                // Event ends during period
-                $qb->expr()->andX(
-                    $qb->expr()->gte('e.endDate', $beginDate),
-                    $qb->expr()->lt('e.endDate', $endDate)
-                ),
-                // Event without endDate
-                $qb->expr()->andX(
-                    $qb->expr()->gt('e.startDate', $beginDate),
-                    $qb->expr()->lt('e.endDate', $beginDate)
                 )
             )
         );
