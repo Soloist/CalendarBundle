@@ -55,6 +55,8 @@ class AdminEventController extends ORMCrudController
 
     public function showByCalendarAction(Calendar $calendar)
     {
+        $this->addBaseBreadcrumb(false);
+
         return $this->render('FrequenceWebDashboardBundle:Crud:index.html.twig', array(
             'objects'       => $calendar->getEvents(),
             'currentSort'   => null
