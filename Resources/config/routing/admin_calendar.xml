@@ -28,4 +28,8 @@
         <default key="_controller">SoloistCalendarBundle:AdminCalendar:delete</default>
     </route>
 
+    <route id="soloist_calendar_admin_event_by_calendar" pattern="/show/by-calendar/{id}">
+        <default key="_controller">SoloistCalendarBundle:AdminCalendar:showEvents</default>
+    </route>
+
 </routes>

@@ -5,6 +5,7 @@ namespace Soloist\Bundle\CalendarBundle\Controller;
 use FrequenceWeb\Bundle\DashboardBundle\Controller\ORMCrudController;
 
 use Soloist\Bundle\CalendarBundle\Entity\Event,
+    Soloist\Bundle\CalendarBundle\Entity\Calendar,
     Soloist\Bundle\CalendarBundle\Form\Type\EventType;
 
 /**
@@ -22,7 +23,7 @@ class AdminEventController extends ORMCrudController
         $translator = $this->get('translator');
 
         return array(
-            'display'     => array(
+            'display'           => array(
                 'id'        => array('label' => 'N°'),
                 'startDate'   => array(
                     'type'  => 'date',
@@ -36,13 +37,14 @@ class AdminEventController extends ORMCrudController
                     'label' => $translator->trans('soloist.calendar.event.entity.description')
                 ),
             ),
-            'prefix'     => 'soloist_calendar_admin_event',
-            'singular'   => $translator->trans('soloist.calendar.event.singular'),
-            'plural'     => $translator->trans('soloist.calendar.event.plural'),
-            'repository' => 'SoloistCalendarBundle:Event',
-            'form_type'  => new EventType,
-            'class'      => new Event,
-            'sortable'   => true
+            'prefix'            => 'soloist_calendar_admin_event',
+            'singular'          => $translator->trans('soloist.calendar.event.singular'),
+            'plural'            => $translator->trans('soloist.calendar.event.plural'),
+            'repository'        => 'SoloistCalendarBundle:Event',
+            'form_type'         => new EventType,
+            'class'             => new Event,
+            'sortable'          => true,
         );
     }
+
 }

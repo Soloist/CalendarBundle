@@ -38,8 +38,23 @@ class AdminCalendarController extends ORMCrudController
             'repository' => 'SoloistCalendarBundle:Calendar',
             'form_type'  => new CalendarType,
             'class'      => new Calendar,
-            'sortable'   => true
+            'sortable'   => true,
+            'object_actions'    => array(
+                'manage_image' => array(
+                    'label' => $translator->trans('soloist.calendar.admin.eventManagement'),
+                    'route' => 'soloist_calendar_admin_event_by_calendar',
+                )
+            ),
         );
+    }
+
+    public function showEventsAction(Calendar $calendar)
+    {
+        $this->addBaseBreadcrumb(false);
+        return $this->render('FrequenceWebDashboardBundle:Crud:index.html.twig', array(
+            'objects'       => $calendar->getEvents(),
+            'currentSort'   => null
+        ));
     }
 
 }
