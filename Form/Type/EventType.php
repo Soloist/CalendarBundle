@@ -22,21 +22,42 @@ class EventType extends AbstractType
             ->add('startTime',       'fw_jquery_time', array(
                 'label'         => 'soloist.calendar.event.form.startTime',
                 'empty_value'   => '',
+                'required'      => false
             ))
             ->add('endDate',         'fw_jquery_date', array(
                 'label'         => 'soloist.calendar.event.form.endDate',
                 'empty_value'   => '',
+                'required'      => false
             ))
             ->add('endTime',         'fw_jquery_time', array(
                 'label'         => 'soloist.calendar.event.form.endTime',
                 'empty_value'   => '',
+                'required'      => false
             ))
-            ->add('description',      null,            array('label' => 'soloist.calendar.event.form.description'))
-            ->add('contactName',     null,             array('label' => 'soloist.calendar.event.form.contactName'))
-            ->add('contactEmail',    null,             array('label' => 'soloist.calendar.event.form.contactEmail'))
-            ->add('contactAddress',  null,             array('label' => 'soloist.calendar.event.form.contactAddress'))
-            ->add('contactCity',     null,             array('label' => 'soloist.calendar.event.form.contactCity'))
-            ->add('contactPostCode', null,             array('label' => 'soloist.calendar.event.form.contactPostCode'))
+            ->add('description',      null,            array(
+                'label'         => 'soloist.calendar.event.form.description',
+                'required'      => false
+            ))
+            ->add('contactName',     null,             array(
+                'label'         => 'soloist.calendar.event.form.contactName',
+                'required'      => false
+            ))
+            ->add('contactEmail',    null,             array(
+                'label'         => 'soloist.calendar.event.form.contactEmail',
+                'required'      => false
+            ))
+            ->add('contactAddress',  null,             array(
+                'label'         => 'soloist.calendar.event.form.contactAddress',
+                'required'      => false
+            ))
+            ->add('contactCity',     null,             array(
+                'label'         => 'soloist.calendar.event.form.contactCity',
+                'required'      => false
+            ))
+            ->add('contactPostCode', null,             array(
+                'label'         => 'soloist.calendar.event.form.contactPostCode',
+                'required'      => false
+            ))
         ;
     }
 
