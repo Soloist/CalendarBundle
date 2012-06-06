@@ -44,7 +44,20 @@ class AdminEventController extends ORMCrudController
             'form_type'         => new EventType,
             'class'             => new Event,
             'sortable'          => true,
+            'object_actions'    => array(
+                'manage_image' => array(
+                    'label' => $translator->trans('soloist.calendar.admin.eventManagement'),
+                    'route' => 'soloist_calendar_admin_event_by_calendar',
+                )
+            ),
         );
     }
 
+    public function showByCalendarAction(Calendar $calendar)
+    {
+        return $this->render('FrequenceWebDashboardBundle:Crud:index.html.twig', array(
+            'objects'       => $calendar->getEvents(),
+            'currentSort'   => null
+        ));
+    }
 }

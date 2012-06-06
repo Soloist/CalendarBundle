@@ -19,7 +19,11 @@
             <gedmo:slug fields="title" />
         </field>
 
-        <one-to-many field="events" target-entity="Event" mapped-by="calendar" />
+        <one-to-many field="events" target-entity="Event" mapped-by="calendar">
+            <order-by>
+                <order-by-field name="startDate" direction="DESC" />
+            </order-by>
+        </one-to-many>
 
         <lifecycle-callbacks />
     </entity>
