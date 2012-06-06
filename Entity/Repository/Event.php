@@ -1,13 +1,14 @@
 <?php
 
-namespace Soloist\Bundle\CalendarBundle\Repository;
+namespace Soloist\Bundle\CalendarBundle\Entity\Repository;
 
 use CalendR\Event\Provider\ProviderInterface;
-use Doctrine\ORM\EntityRepository,
-    Doctrine\ORM\Query\Expr;
 
+use Doctrine\ORM\EntityRepository;
 
-class EventRepository extends EntityRepository implements ProviderInterface
+use Soloist\Bundle\CalendarBundle\Entity\Calendar;
+
+class Event extends EntityRepository implements ProviderInterface
 {
     /**
      * {@inheritdoc}
@@ -45,6 +46,34 @@ class EventRepository extends EntityRepository implements ProviderInterface
 
 
         return $qb->getQuery()->getResult();
+    }
 
+    /**
+     * Returns $nb events
+     *
+     * @param null $calendar
+     * @param int $nb
+     * @return array
+     */
+    public function findForCalendar($calendar = null, $nb = 5)
+    {
+        if ($calendar instanceof Calendar) {
+            $calendar = $calendar->getId();
+        }
+
+        $qb = $this->createQueryBuilder('e')
+            ->where('e.startDate > :now')
+            ->setParameter('now', date('Y-m-d'))
+            ->orderBy('e.startDate')
+            ->setMaxResults($nb)
+        ;
+
+        if ($calendar) {
+            $qb->where('e.calendar = :calendar');
+            $qb->setParameter('calendar', $calendar);
+        }
+
+
+        return $qb->getQuery()->getResult();
     }
 }
