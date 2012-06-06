@@ -1,0 +1,56 @@
+{% extends 'SoloistCalendarBundle::layout.html.twig' %}
+{% block soloist_calendar_layout %}
+<h1>{% trans %}soloist.calendar.event{% endtrans %} : {{ event.title }}</h1>
+
+    <p>
+        <strong>{% trans %}soloist.calendar.event.form.startDate{% endtrans %}</strong>:<br />
+        {{ event.getBegin() | format_datetime }}
+    </p>
+
+    <p>
+        <strong>{% trans %}soloist.calendar.event.form.endDate{% endtrans %}</strong>:<br />
+        {{ event.getEnd() | format_datetime }}
+    </p>
+
+    <p>
+        <strong>{% trans %}soloist.calendar.event.form.description{% endtrans %}</strong>:<br />
+        {{ event.description | raw }}
+    </p>
+
+{% if event.contactName is not empty %}
+    <p>
+        <strong>{% trans %}soloist.calendar.event.form.contactName{% endtrans %}</strong><br />
+        {{ event.contactName }}
+    </p>
+{% endif %}
+
+{% if event.contactEmail is not empty %}
+    <p>
+        <strong>{% trans %}soloist.calendar.event.form.contactEmail{% endtrans %}</strong><br />
+        {{ event.contactEmail }}
+    </p>
+{% endif %}
+
+{% if event.contactAddress is not empty %}
+    <p>
+        <strong>{% trans %}soloist.calendar.event.form.contactAddress{% endtrans %}</strong><br />
+        {{ event.contactAddress }}
+    </p>
+{% endif %}
+
+{% if event.contactCity is not empty %}
+    <p>
+        <strong>{% trans %}soloist.calendar.event.form.contactCity{% endtrans %}</strong><br />
+        {{ event.contactCity }}
+    </p>
+{% endif %}
+
+{% if event.contactPostCode is not empty %}
+    <p>
+        <strong>{% trans %}soloist.calendar.event.form.contactPostCode{% endtrans %}</strong><br />
+        {{ event.contactPostCode }}
+    </p>
+{% endif %}
+
+
+{% endblock %}
