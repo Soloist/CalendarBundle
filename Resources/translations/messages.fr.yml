@@ -1,4 +1,6 @@
 soloist.calendar:
+    admin:
+        eventManagement: Gestion des évènements
     menu:
         group: Agenda
     calendar:
@@ -49,4 +51,5 @@ soloist.calendar:
     title: Calendrier
     title_list: Liste des calendriers disponibles
     all_events: Tous les évènements
+    event: Evènement
     upcoming_events: Prochains évenements
