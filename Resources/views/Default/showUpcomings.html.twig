@@ -1,4 +1,4 @@
-<div class="upcomings-event">
+<div class="upcoming-events">
     <h3>{% trans %}soloist.calendar.upcoming_events{% endtrans %}</h3>
     {% for event in events %}
         <div class="event">
@@ -9,7 +9,7 @@
                 </span>
                 <span class="title">{{ event.title }}</span>
             </h4>
-            <p class="description">{{ event.description | raw | striptags | truncate(30, true) }}</p>
+            <p class="description">{{ event.description | raw | striptags | truncate(40, true) }}</p>
         </div>
     {% endfor %}
 </div>

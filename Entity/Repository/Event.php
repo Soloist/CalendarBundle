@@ -69,10 +69,9 @@ class Event extends EntityRepository implements ProviderInterface
         ;
 
         if ($calendar) {
-            $qb->where('e.calendar = :calendar');
+            $qb->andWhere('e.calendar = :calendar');
             $qb->setParameter('calendar', $calendar);
         }
-
 
         return $qb->getQuery()->getResult();
     }

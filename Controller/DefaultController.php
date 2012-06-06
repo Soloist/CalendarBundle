@@ -74,7 +74,7 @@ class DefaultController extends Controller
     public function showUpcomingsAction($calendar = null, $nb)
     {
         return array(
-            'events' => $this->getDoctrine()->getRepository('SoloistCalendarBundle:Event')->findForCalendar($calendar)
+            'events' => $this->getDoctrine()->getRepository('SoloistCalendarBundle:Event')->findForCalendar($calendar, $nb)
         );
     }
 

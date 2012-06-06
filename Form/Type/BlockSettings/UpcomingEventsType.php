@@ -27,7 +27,7 @@ class UpcomingEventsType extends AbstractType implements DataTransformerInterfac
         $builder
             ->appendClientTransformer($this)
             ->add('calendar', 'entity', array(
-                'class'  => 'SoloistCalendarBundle:Calendar'
+                'class'  => 'SoloistCalendarBundle:Calendar',
             ))
             ->add('nb', 'number')
         ;
