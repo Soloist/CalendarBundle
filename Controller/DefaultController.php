@@ -2,7 +2,9 @@
 
 namespace Soloist\Bundle\CalendarBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template,
+    Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
 use Soloist\Bundle\CalendarBundle\Entity\Calendar,
     Soloist\Bundle\CalendarBundle\Entity\Event;
 
@@ -63,5 +65,17 @@ class DefaultController extends Controller
         ));
     }
 
+    /**
+     * @Template()
+     * @param null $calendar
+     * @param $nb
+     * @return array
+     */
+    public function showUpcomingsAction($calendar = null, $nb)
+    {
+        return array(
+            'events' => $this->getDoctrine()->getRepository('SoloistCalendarBundle:Event')->findForCalendar($calendar)
+        );
+    }
 
 }
