@@ -25,12 +25,14 @@ class AdminEventController extends ORMCrudController
             'display'     => array(
                 'id'        => array('label' => 'N°'),
                 'startDate'   => array(
+                    'type'  => 'date',
                     'label' => $translator->trans('soloist.calendar.event.entity.startDate')
                 ),
                 'title'       => array(
                     'label' => $translator->trans('soloist.calendar.event.entity.title')
                 ),
                 'description' => array(
+                    'type'  => 'longtext',
                     'label' => $translator->trans('soloist.calendar.event.entity.description')
                 ),
             ),

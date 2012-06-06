@@ -28,6 +28,7 @@ class AdminCalendarController extends ORMCrudController
                     'label' => $translator->trans('soloist.calendar.calendar.entity.title')
                 ),
                 'description' => array(
+                    'type'  => 'longtext',
                     'label' => $translator->trans('soloist.calendar.calendar.entity.description')
                 )
             ),

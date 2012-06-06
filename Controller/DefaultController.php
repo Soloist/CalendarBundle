@@ -3,7 +3,8 @@
 namespace Soloist\Bundle\CalendarBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Soloist\Bundle\CalendarBundle\Entity\Calendar;
+use Soloist\Bundle\CalendarBundle\Entity\Calendar,
+    Soloist\Bundle\CalendarBundle\Entity\Event;
 
 class DefaultController extends Controller
 {
@@ -61,4 +62,6 @@ class DefaultController extends Controller
             'event'     => $event
         ));
     }
+
+
 }
