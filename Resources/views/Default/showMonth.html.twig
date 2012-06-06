@@ -1,7 +1,7 @@
 {% extends 'SoloistCalendarBundle::layout.html.twig' %}
 {% block soloist_calendar_layout %}
 <h1>
-    {% if calendar is defined %}
+    {% if calendar is not null %}
         {{ calendar.title }}
     {% else %}
         {% trans %}soloist.calendar.all_events{% endtrans %}
@@ -17,7 +17,7 @@
                         {% if month.contains(day.begin) %}
                             {{ day.begin.format('d') }}
                             <ul class="soloist-calendar-events">
-                                {% for events in calendr_events(day, options) %}
+                                {% for event in calendr_events(day, options) %}
                                     <li>
                                         <a href="{{ path('soloist_calendar_event_show', { 'slug': event.slug }) }}">
                                             {{ event.title }}
