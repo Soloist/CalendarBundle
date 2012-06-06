@@ -1,4 +1,6 @@
 soloist.calendar:
+    admin:
+        eventManagement: Event management
     menu:
         group: Calendar
     calendar:
@@ -49,3 +51,4 @@ soloist.calendar:
     title: Calendar
     title_list: Avalaible calendars list
     all_events: All events
+    event: Event
