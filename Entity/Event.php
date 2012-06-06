@@ -430,11 +430,14 @@ class Event extends AbstractEvent implements CrudableInterface
      */
     public function getEnd()
     {
-        $date = clone $this->endDate;
-        if (!is_null($date) && $time = $this->endTime) {
-            $date->setTime($time->format('H'), $time->format('i'));
-        }
+        if(!is_null($this->endDate)) {
+            $date = clone $this->endDate;
+            if (!is_null($date) && $time = $this->endTime) {
+                $date->setTime($time->format('H'), $time->format('i'));
+            }
 
-        return $date;
+            return $date;
+        }
+        return $this->getBegin();
     }
 }

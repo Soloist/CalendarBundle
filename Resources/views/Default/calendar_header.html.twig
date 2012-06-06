@@ -1,7 +1,7 @@
 <thead>
     <tr>
         <th>
-            {% if calendar is defined %}
+            {% if calendar is not null %}
             <a href="{{ path('soloist_calendar_calendar_show', {
                 'year': month.previous.begin.format('Y'),
                 'month': month.previous.begin.format('n'),
@@ -20,7 +20,7 @@
             {{ month.begin | format_date('MMM') }}
         </th>
         <th>
-            {% if calendar is defined %}
+            {% if calendar is not null %}
             <a href="{{ path('soloist_calendar_calendar_show', {
                 'year': month.getNext().begin.format('Y'),
                 'month': month.getNext().begin.format('n'),
