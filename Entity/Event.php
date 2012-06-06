@@ -82,6 +82,11 @@ class Event extends AbstractEvent implements CrudableInterface
      */
     protected $calendar;
 
+    public function __construct()
+    {
+        $this->startDate = new \DateTime;
+    }
+
     /**
      * Get id
      *
