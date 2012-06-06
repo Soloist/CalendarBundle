@@ -1,0 +1,15 @@
+<div class="upcomings-event">
+    <h3>{% trans %}soloist.calendar.upcoming_events{% endtrans %}</h3>
+    {% for event in events %}
+        <div class="event">
+            <h4>
+                <span class="date">
+                    <span class="month-day">{{ event.startDate | format_date('dd') }}</span><!--
+                 --><span class="month">/{{ event.startDate | format_date('MM') }}</span>
+                </span>
+                <span class="title">{{ event.title }}</span>
+            </h4>
+            <p class="description">{{ event.description | raw | striptags | truncate(30, true) }}</p>
+        </div>
+    {% endfor %}
+</div>

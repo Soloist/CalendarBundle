@@ -52,3 +52,4 @@ soloist.calendar:
     title_list: Avalaible calendars list
     all_events: All events
     event: Event
+    upcoming_events: Upcoming events
