@@ -78,4 +78,20 @@ class DefaultController extends Controller
         );
     }
 
+    /**
+     * @Template()
+     * @param  Calendar $calendar
+     * @return array
+     */
+    public function showCalendarAction($calendar)
+    {
+        $month = $this->get('calendr')->getMonth(date('Y'), date('n'));
+
+        return array(
+            'options'   => array('id' => $calendar->getId()),
+            'calendar'  => $calendar,
+            'month'     => $month
+        )
+    }
+
 }

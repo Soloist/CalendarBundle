@@ -5,6 +5,7 @@ namespace Soloist\Bundle\CalendarBundle\EventListener;
 use Doctrine\ORM\EntityManager;
 
 use Soloist\Bundle\CalendarBundle\Form\Type\BlockSettings\UpcomingEventsType,
+    Soloist\Bundle\CalendarBundle\Form\Type\BlockSettings\CalendarType,
     Soloist\Bundle\BlockBundle\EventListener\Event\RequestTypes;
 
 class BlockListener
@@ -26,6 +27,13 @@ class BlockListener
             'action'        => 'SoloistCalendarBundle:Default:showUpcomings',
             'settings'      => array('calendar' => null, 'nb' => 5),
             'form'          => new UpcomingEventsType($this->em),
+        ));
+
+        $event->getManager()->addBlockType('calendar', array(
+            'name'          => 'Calendrier',
+            'action'        => 'SoloistCalendarBundle:Default:showCalendar',
+            'settings'      => array('calendar' => null),
+            'form'          => new CalendarType($this->em),
         ));
     }
 }

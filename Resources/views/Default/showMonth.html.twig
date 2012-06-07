@@ -10,28 +10,8 @@
 <table class="soloist-calendar">
     {% include 'SoloistCalendarBundle:Default:calendar_header.html.twig' %}
     <tbody>
-        {% for week in month %}
-            <tr>
-                {% for day in week %}
-                    <td>
-                        {% if month.contains(day.begin) %}
-                            {{ day.begin.format('d') }}
-                            <ul class="soloist-calendar-events">
-                                {% for event in calendr_events(day, options) %}
-                                    <li>
-                                        <a href="{{ path('soloist_calendar_event_show', { 'slug': event.slug }) }}">
-                                            {{ event.title }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        {% else %}
-                            &nbsp;
-                        {% endif %}
-                    </td>
-                {% endfor %}
-            </tr>
-        {% endfor %}
+    {% include 'SoloistCalendarBundle:Default:calendar_month.html.twig' %}
     </tbody>
 </table>
+
 {% endblock %}
