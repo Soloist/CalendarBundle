@@ -51,5 +51,5 @@ soloist.calendar:
     title: Calendrier
     title_list: Liste des calendriers disponibles
     all_events: Tous les évènements
-    event: Evènement
+    title_event: Evènement
     upcoming_events: Prochains évenements
