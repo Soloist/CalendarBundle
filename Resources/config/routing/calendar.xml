@@ -9,4 +9,8 @@
         <default key="_controller">SoloistCalendarBundle:Default:listCalendars</default>
     </route>
 
+    <route id="soloist_calendar_calendar_index" pattern="/calendar-{id}.html">
+        <default key="_controller">SoloistCalendarBundle:Default:showCalendar</default>
+    </route>
+
 </routes>

@@ -28,12 +28,5 @@ class BlockListener
             'settings'      => array('calendar' => null, 'nb' => 5),
             'form'          => new UpcomingEventsType($this->em),
         ));
-
-        $event->getManager()->addBlockType('calendar', array(
-            'name'          => 'Calendrier',
-            'action'        => 'SoloistCalendarBundle:Default:showCalendar',
-            'settings'      => array('calendar' => null),
-            'form'          => new CalendarType($this->em),
-        ));
     }
 }

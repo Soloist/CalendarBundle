@@ -83,7 +83,7 @@ class DefaultController extends Controller
      * @param  Calendar $calendar
      * @return array
      */
-    public function showCalendarAction($calendar)
+    public function showCalendarAction(Calendar $calendar)
     {
         $month = $this->get('calendr')->getMonth(date('Y'), date('n'));
 
@@ -91,7 +91,7 @@ class DefaultController extends Controller
             'options'   => array('id' => $calendar->getId()),
             'calendar'  => $calendar,
             'month'     => $month
-        )
+        );
     }
 
 }
