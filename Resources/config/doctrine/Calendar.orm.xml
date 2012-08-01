@@ -5,7 +5,7 @@
                         http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
     xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
 
-    <entity name="Soloist\Bundle\CalendarBundle\Entity\Calendar">
+    <entity name="Soloist\Bundle\CalendarBundle\Entity\Calendar" table="soloist_calendar_calendar">
         <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
 
         <id name="id" type="integer" column="id">

@@ -6,7 +6,8 @@
     xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
 
     <entity name="Soloist\Bundle\CalendarBundle\Entity\Event"
-            repository-class="Soloist\Bundle\CalendarBundle\Entity\Repository\Event">
+            repository-class="Soloist\Bundle\CalendarBundle\Entity\Repository\Event"
+            table="soloist_calendar_event">
 
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO" />
