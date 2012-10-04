@@ -29,6 +29,6 @@
             <gedmo:slug fields="title" />
         </field>
 
-        <many-to-one field="calendar" target-entity="Calendar" />
+        <many-to-one field="calendar" target-entity="Calendar" inversed-by="events" />
     </entity>
 </doctrine-mapping>

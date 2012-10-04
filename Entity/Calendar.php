@@ -2,9 +2,9 @@
 
 namespace Soloist\Bundle\CalendarBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FrequenceWeb\Bundle\DashboardBundle\Crud\CrudableInterface;
-
 /**
  * Soloist\Bundle\CalendarBundle\Entity\Calendar
  */
