@@ -42,7 +42,7 @@ class Event extends AbstractEvent implements CrudableInterface
     protected $title;
 
     /**
-     * @var text $description
+     * @var string $description
      */
     protected $description;
 
@@ -81,6 +81,11 @@ class Event extends AbstractEvent implements CrudableInterface
      * @var Calendar $calendar
      */
     protected $calendar;
+
+    /**
+     * @var string
+     */
+    protected $image;
 
     public function __construct()
     {
@@ -440,4 +445,21 @@ class Event extends AbstractEvent implements CrudableInterface
         }
         return $this->getBegin();
     }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
 }

@@ -58,6 +58,7 @@ class EventType extends AbstractType
                 'label'         => 'soloist.calendar.event.form.contactPostCode',
                 'required'      => false
             ))
+            ->add('image', 'file')
         ;
     }
 

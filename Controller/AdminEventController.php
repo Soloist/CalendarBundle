@@ -44,12 +44,7 @@ class AdminEventController extends ORMCrudController
             'form_type'         => new EventType,
             'class'             => new Event,
             'sortable'          => true,
-            'object_actions'    => array(
-                'manage_image' => array(
-                    'label' => $translator->trans('soloist.calendar.admin.eventManagement'),
-                    'route' => 'soloist_calendar_admin_event_by_calendar',
-                )
-            ),
+            'object_actions'    => array(),
         );
     }
 
@@ -61,5 +56,10 @@ class AdminEventController extends ORMCrudController
             'objects'       => $calendar->getEvents(),
             'currentSort'   => null
         ));
+    }
+
+    protected function getFormHandler()
+    {
+        return parent::getFormHandler();
     }
 }

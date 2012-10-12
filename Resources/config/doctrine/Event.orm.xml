@@ -24,6 +24,7 @@
         <field name="contactAddress"  type="string" column="contact_address"  length="255" nullable="true" />
         <field name="contactCity"     type="string" column="contact_city"     length="255" nullable="true" />
         <field name="contactPostCode" type="string" column="contact_postCode" length="255" nullable="true" />
+        <field name="image"           type="string" column="image"            length="255" nullable="true" />
 
         <field name="slug" type="string" length="255" unique="true">
             <gedmo:slug fields="title" />

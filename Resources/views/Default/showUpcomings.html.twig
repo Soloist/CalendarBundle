@@ -7,7 +7,11 @@
                     <span class="month-day">{{ event.startDate | format_date('dd') }}</span><!--
                  --><span class="month">/{{ event.startDate | format_date('MM') }}</span>
                 </span>
-                <span class="title">{{ event.title }}</span>
+                <span class="title">
+                    <a href="{{ path('soloist_calendar_event_show', {slug: event.slug}) }}">
+                        {{ event.title }}
+                    </a>
+                </span>
             </h4>
             <p class="description">{{ event.description | raw | striptags | truncate(40, true) }}</p>
         </div>
