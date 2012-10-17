@@ -19,12 +19,19 @@
         <field name="endTime"         type="time"   column="end_time"                      nullable="true" />
         <field name="title"           type="string" column="title"            length="255"                 />
         <field name="description"     type="text"   column="description"                                   />
+        <field name="place"           type="text"   column="place"                                         />
+        <field name="price"           type="string" column="price"            length="63"                  />
         <field name="contactName"     type="string" column="contact_name"     length="255" nullable="true" />
+        <field name="contactPhone"    type="string" column="contact_phone"    length="15"  nullable="true" />
+        <field name="contactPhone2"   type="string" column="contact_phone2"   length="15"  nullable="true" />
         <field name="contactEmail"    type="string" column="contact_email"    length="255" nullable="true" />
+        <field name="contactWebsite"  type="string" column="contact_website"  length="255" nullable="true" />
         <field name="contactAddress"  type="string" column="contact_address"  length="255" nullable="true" />
         <field name="contactCity"     type="string" column="contact_city"     length="255" nullable="true" />
         <field name="contactPostCode" type="string" column="contact_postCode" length="255" nullable="true" />
         <field name="image"           type="string" column="image"            length="255" nullable="true" />
+        <field name="latitude"        type="float"  column="latitude"                      nullable="true" />
+        <field name="longitude"       type="float"  column="longitude"                     nullable="true" />
 
         <field name="slug" type="string" length="255" unique="true">
             <gedmo:slug fields="title" />

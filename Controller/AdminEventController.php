@@ -3,10 +3,10 @@
 namespace Soloist\Bundle\CalendarBundle\Controller;
 
 use FrequenceWeb\Bundle\DashboardBundle\Controller\ORMCrudController;
-
-use Soloist\Bundle\CalendarBundle\Entity\Event,
-    Soloist\Bundle\CalendarBundle\Entity\Calendar,
-    Soloist\Bundle\CalendarBundle\Form\Type\EventType;
+use Soloist\Bundle\CalendarBundle\Entity\Calendar;
+use Soloist\Bundle\CalendarBundle\Entity\Event;
+use Soloist\Bundle\CalendarBundle\Form\Handler\EventHandler;
+use Soloist\Bundle\CalendarBundle\Form\Type\EventType;
 
 /**
  * Admin management for events
@@ -60,6 +60,6 @@ class AdminEventController extends ORMCrudController
 
     protected function getFormHandler()
     {
-        return parent::getFormHandler();
+        return new EventHandler($this->container, $this->getDoctrine()->getManager(), $this->get('form.factory'));
     }
 }

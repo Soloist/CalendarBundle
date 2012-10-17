@@ -38,8 +38,20 @@ class EventType extends AbstractType
                 'label'         => 'soloist.calendar.event.form.description',
                 'required'      => false
             ))
+            ->add('place',      'text',            array(
+                'label'         => 'soloist.calendar.event.form.place',
+                'required'      => false
+            ))
             ->add('contactName',     null,             array(
                 'label'         => 'soloist.calendar.event.form.contactName',
+                'required'      => false
+            ))
+            ->add('contactPhone',    null,             array(
+                'label'         => 'soloist.calendar.event.form.contactPhone',
+                'required'      => false
+            ))
+            ->add('contactPhone',    null,             array(
+                'label'         => 'soloist.calendar.event.form.contactPhone2',
                 'required'      => false
             ))
             ->add('contactEmail',    null,             array(
@@ -58,7 +70,7 @@ class EventType extends AbstractType
                 'label'         => 'soloist.calendar.event.form.contactPostCode',
                 'required'      => false
             ))
-            ->add('image', 'file')
+            ->add('image', 'file', array('required' => false))
         ;
     }
 

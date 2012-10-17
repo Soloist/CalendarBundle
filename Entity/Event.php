@@ -11,6 +11,8 @@ use CalendR\Event\AbstractEvent;
  */
 class Event extends AbstractEvent implements CrudableInterface
 {
+    const UPLOAD_DIR = '/web_event_uploads';
+
     /**
      * @var integer $id
      */
@@ -47,6 +49,16 @@ class Event extends AbstractEvent implements CrudableInterface
     protected $description;
 
     /**
+     * @var string
+     */
+    protected $place;
+
+    /**
+     * @var string
+     */
+    protected $price;
+
+    /**
      * @var string $contactName
      */
     protected $contactName;
@@ -55,6 +67,21 @@ class Event extends AbstractEvent implements CrudableInterface
      * @var string $contactEmail
      */
     protected $contactEmail;
+
+    /**
+     * @var string $contactEmail
+     */
+    protected $contactWebsite;
+
+    /**
+     * @var string $contactPhone
+     */
+    protected $contactPhone;
+
+    /**
+     * @var string $contactPhone
+     */
+    protected $contactPhone2;
 
     /**
      * @var string $contactAddress
@@ -86,6 +113,16 @@ class Event extends AbstractEvent implements CrudableInterface
      * @var string
      */
     protected $image;
+
+    /**
+     * @var float
+     */
+    protected $latitude;
+
+    /**
+     * @var float
+     */
+    protected $longitude;
 
     public function __construct()
     {
@@ -462,4 +499,123 @@ class Event extends AbstractEvent implements CrudableInterface
         return $this->image;
     }
 
+    /**
+     * @return string
+     */
+    public function getImagePath()
+    {
+        return static::UPLOAD_DIR . '/' . $this->getImage();
+    }
+
+    /**
+     * @param string $contactPhone
+     */
+    public function setContactPhone($contactPhone)
+    {
+        $this->contactPhone = $contactPhone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContactPhone()
+    {
+        return $this->contactPhone;
+    }
+
+    /**
+     * @param string $contactPhone2
+     */
+    public function setContactPhone2($contactPhone2)
+    {
+        $this->contactPhone2 = $contactPhone2;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContactPhone2()
+    {
+        return $this->contactPhone2;
+    }
+
+    /**
+     * @param string $contactWebsite
+     */
+    public function setContactWebsite($contactWebsite)
+    {
+        $this->contactWebsite = $contactWebsite;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContactWebsite()
+    {
+        return $this->contactWebsite;
+    }
+
+    /**
+     * @param string $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param string $place
+     */
+    public function setPlace($place)
+    {
+        $this->place = $place;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlace()
+    {
+        return $this->place;
+    }
+
+    /**
+     * @param float $latitude
+     */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * @param float $longitude
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
 }
