@@ -19,8 +19,8 @@
         <field name="endTime"         type="time"   column="end_time"                      nullable="true" />
         <field name="title"           type="string" column="title"            length="255"                 />
         <field name="description"     type="text"   column="description"                                   />
-        <field name="place"           type="text"   column="place"                                         />
-        <field name="price"           type="string" column="price"            length="63"                  />
+        <field name="place"           type="text"   column="place"                         nullable="true" />
+        <field name="price"           type="string" column="price"            length="63"  nullable="true" />
         <field name="contactName"     type="string" column="contact_name"     length="255" nullable="true" />
         <field name="contactPhone"    type="string" column="contact_phone"    length="15"  nullable="true" />
         <field name="contactPhone2"   type="string" column="contact_phone2"   length="15"  nullable="true" />
