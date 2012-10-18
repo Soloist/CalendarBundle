@@ -1,17 +1,17 @@
-(($, gmap) ->
+(($) ->
 
-    class Map
+    class GMap
         constructor: (container)->
             @$container  = $(container)
             @lat         = parseFloat(@$container.data('lat'))
-            @long        = parseFloat(@$container.data('long'))
+            @longit        = parseFloat(@$container.data('long'))
             @zoom        = parseInt(@$container.data('zoom'))
             @info        = @$container.data('info')
-            @plot        = @$container.data('plot')
+            @plotInfo    = @$container.data('plot')
 
             options = {
                 zoom:                @zoom,
-                center:              new google.maps.LatLng(@lat, @long),
+                center:              new google.maps.LatLng(@lat, @longit),
                 mapTypeId:           google.maps.MapTypeId.ROADMAP,
                 mapTypeControl:      false,
                 overviewMapControl:  false,
@@ -21,30 +21,30 @@
                 zoomControlOptions:  { style: 'SMALL' },
                 streetViewControl:   false
             }
-            @map = new google.maps.Map(container, options)
+            @gmap = new google.maps.Map(container, options)
 
-            @addInfoWindow(@lat, @long, @info) if (@info)
-            @addPlot(@lat, @long, @plot) if (@plot)
+            @addInfoWindow(@lat, @longit, @info) if (@info)
+            @addPlot(@lat, @longit, @plotInfo) if (@plotInfo)
 
-        addInfoWindow: (lat, long, text) ->
+        addInfoWindow: (lat, longit, text) ->
             infoWindow = new google.maps.InfoWindow({
                 maxWidth: parseInt(@$container.width() / 2.5, 10)
             });
-            infoWindow.setContent(text);
-            infoWindow.setPosition(new google.maps.LatLng(lat, long));
-            infoWindow.open(@map);
+            infoWindow.setContent(text)
+            infoWindow.setPosition(new google.maps.LatLng(lat, longit))
+            infoWindow.open(@gmap)
 
-        addPlot: (lat, long, text) ->
-            plot = new google.maps.Marker;
-            plot.setPosition(new google.maps.LatLng(lat, long))
-            plot.setTitle(text) if text?
-            plot.setMap(@map)
+        addPlot: (lat, longit, text) ->
+            plotInfo = new google.maps.Marker;
+            setPosition.setPosition(new google.maps.LatLng(lat, longit))
+            setPosition.setTitle(text) if text?
+            setPosition.setMap(@gmap)
 
-    $.fn.map = ->
+    $.fn.gmap = ->
         this.each ->
-            new Map(this)
+            new GMap(this)
 
     $(window).load ->
-        $('[data-behavior="map"]').map()
+        $('[data-behavior="map"]').gmap()
 
 )(jQuery)
