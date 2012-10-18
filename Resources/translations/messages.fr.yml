@@ -32,6 +32,9 @@ soloist.calendar:
         form:
             title: Titre
             description: Description
+            place:     'Lieu (Sous la forme "lieu, ville")'
+            contactPhone: Numéro de téléphone
+            contactPhone2: Numéro de téléphone N°2
             startDate: Date de début
             startTime: Heure de début
             endDate: Date de fin
