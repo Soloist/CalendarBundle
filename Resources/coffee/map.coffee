@@ -4,7 +4,7 @@
         constructor: (container)->
             @$container  = $(container)
             @lat         = parseFloat(@$container.data('lat'))
-            @longit        = parseFloat(@$container.data('long'))
+            @longit      = parseFloat(@$container.data('long'))
             @zoom        = parseInt(@$container.data('zoom'))
             @info        = @$container.data('info')
             @plotInfo    = @$container.data('plot')
@@ -36,9 +36,9 @@
 
         addPlot: (lat, longit, text) ->
             plotInfo = new google.maps.Marker;
-            setPosition.setPosition(new google.maps.LatLng(lat, longit))
-            setPosition.setTitle(text) if text?
-            setPosition.setMap(@gmap)
+            plotInfo.setPosition(new google.maps.LatLng(lat, longit))
+            plotInfo.setTitle(text) if text?
+            plotInfo.setMap(@gmap)
 
     $.fn.gmap = ->
         this.each ->
