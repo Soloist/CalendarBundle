@@ -13,7 +13,7 @@
                     </a>
                 </span>
             </h4>
-            <p class="description">{{ event.description | raw | striptags | truncate(40, true) }}</p>
+            <p class="description">{{ event.description | truncate(40, true)| striptags | raw }}</p>
         </div>
     {% endfor %}
 </div>
