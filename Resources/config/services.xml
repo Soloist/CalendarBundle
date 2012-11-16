@@ -10,6 +10,7 @@
         <parameter key="soloist.calendar.calendr.provider.class">Soloist\Bundle\CalendarBundle\Repository\EventRepository</parameter>
         <parameter key="soloist.calendar.listener.block.class">Soloist\Bundle\CalendarBundle\EventListener\BlockListener</parameter>
         <parameter key="soloist.calendar.listener.geocoder.class">Soloist\Bundle\CalendarBundle\EventListener\GeocoderListener</parameter>
+        <parameter key="soloist.calendar.importer.phpexcel.class">Soloist\Bundle\CalendarBundle\Import\PHPExcelImporter</parameter>
     </parameters>
 
     <services>
@@ -37,6 +38,10 @@
         <service id="soloist.calendar.listener.geocoder" class="%soloist.calendar.listener.geocoder.class%" public="false">
             <argument type="service" id="bazinga_geocoder.geocoder" />
             <tag name="doctrine.event_subscriber" />
+        </service>
+
+        <service id="soloist.calendar.importer.phpexcel" class="%soloist.calendar.importer.phpexcel.class%">
+            <argument type="service" id="doctrine.orm.default_entity_manager" />
         </service>
     </services>
 

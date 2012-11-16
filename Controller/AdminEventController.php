@@ -7,12 +7,48 @@ use Soloist\Bundle\CalendarBundle\Entity\Calendar;
 use Soloist\Bundle\CalendarBundle\Entity\Event;
 use Soloist\Bundle\CalendarBundle\Form\Handler\EventHandler;
 use Soloist\Bundle\CalendarBundle\Form\Type\EventType;
+use Soloist\Bundle\CalendarBundle\Form\Type\ImportType;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Admin management for events
  */
 class AdminEventController extends ORMCrudController
 {
+    public function displayImportFormAction()
+    {
+        $form = $this->createForm(new ImportType);
+
+        return $this->render(
+            'SoloistCalendarBundle:AdminEvent:displayImportForm.html.twig',
+            array('form' => $form->createView())
+        );
+    }
+
+    public function importAction(Request $request)
+    {
+        $form = $this->createForm(new ImportType);
+        $form->bind($request);
+        if ($form->isValid()) {
+            $calendar = $this->getDoctrine()->getRepository('SoloistCalendarBundle:Calendar')
+                ->find($form['calendar']->getData());
+
+            $this->get('soloist.calendar.importer.phpexcel')->import(
+                $calendar,
+                $form['file']->getData()->getPathname()
+            );
+
+            $this->get('session')->getFlashbag()->add('success', 'Evenements importés avec succès');
+
+            return $this->redirect($this->generateUrl('soloist_calendar_admin_event_index'));
+        }
+
+        return $this->render(
+            'SoloistCalendarBundle:AdminEvent:displayImportForm.html.twig',
+            array('form' => $form->createView())
+        );
+    }
+
     /**
      * Return parameters for the dashboard bundle
      *
@@ -45,6 +81,7 @@ class AdminEventController extends ORMCrudController
             'class'             => new Event,
             'sortable'          => true,
             'object_actions'    => array(),
+            'indexTemplate'     => 'SoloistCalendarBundle:AdminEvent:index.html.twig'
         );
     }
 

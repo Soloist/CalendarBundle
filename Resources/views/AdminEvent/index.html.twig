@@ -1,0 +1,9 @@
+{% extends 'FrequenceWebDashboardBundle:Crud:index.html.twig' %}
+
+{% block list_actions %}
+<div class="extra-actions pull-right">
+    <a href="{{ path('soloist_calendar_admin_event_import') }}" class="btn">
+        Importer depuis fichier tableur
+    </a>
+</div>
+{% endblock %}

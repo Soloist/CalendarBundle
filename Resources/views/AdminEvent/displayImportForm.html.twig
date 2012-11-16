@@ -1,0 +1,15 @@
+{% extends 'FrequenceWebDashboardBundle::admin.html.twig' %}
+
+{% block body %}
+<h1>Importer les événements</h1>
+
+<form class="form-horizontal" method="POST" action="{{ path('soloist_calendar_admin_event_import') }}" {{ form_enctype(form) }}>
+    <fieldset>
+        {{ form_rest(form) }}
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="soloist_node_create">Mettre à jour</button>
+        </div>
+    </fieldset>
+</form>
+
+{% endblock %}

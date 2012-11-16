@@ -20,9 +20,30 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('soloist_calendar');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->arrayNode('import_mapping')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('startDate')->defaultValue('B')->end()
+                        ->scalarNode('startTime')->defaultValue('C')->end()
+                        ->scalarNode('endDate')->defaultValue('D')->end()
+                        ->scalarNode('endTime')->defaultValue('E')->end()
+                        ->scalarNode('title')->defaultValue('A')->end()
+                        ->scalarNode('description')->defaultValue('S')->end()
+                        ->scalarNode('place')->defaultValue(array('F', 'G', 'H', 'I'))->end()
+                        ->scalarNode('price')->defaultValue('J')->end()
+                        ->scalarNode('contactName')->defaultValue('K')->end()
+                        ->scalarNode('contactEmail')->defaultValue('L')->end()
+                        ->scalarNode('contactWebsite')->defaultValue('M')->end()
+                        ->scalarNode('contactPhone')->defaultValue('N')->end()
+                        ->scalarNode('contactPhone2')->defaultValue('O')->end()
+                        ->scalarNode('contactAddress')->defaultValue('P')->end()
+                        ->scalarNode('contactPostCode')->defaultValue('Q')->end()
+                        ->scalarNode('contactCity')->defaultValue('R')->end()
+                    ->end()
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }
