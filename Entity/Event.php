@@ -173,7 +173,7 @@ class Event extends AbstractEvent implements CrudableInterface
      */
     public function setStartTime($startTime)
     {
-        $this->startTime = $startTime;
+        $this->startTime = static::convertTime($startTime);
 
         return $this;
     }
@@ -222,7 +222,7 @@ class Event extends AbstractEvent implements CrudableInterface
      */
     public function setEndTime($endTime)
     {
-        $this->endTime = $endTime;
+        $this->endTime = static::convertTime($endTime);
 
         return $this;
     }
@@ -623,5 +623,23 @@ class Event extends AbstractEvent implements CrudableInterface
     public function getLongitude()
     {
         return $this->longitude;
+    }
+
+    /**
+     * @param  \DateTime|string $time
+     *
+     * @return \DateTime
+     */
+    protected static function convertTime($time)
+    {
+        if (null === $time || $time instanceof \DateTime) {
+            return $time;
+        }
+
+        if (false !== preg_match('#h#i', $time)) {
+            $time = preg_replace('#^(\d{1,2})h(\d{1,2})#i', '$1:$2', $time);
+        }
+
+        return new \DateTime($time);
     }
 }
