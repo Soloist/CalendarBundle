@@ -2,8 +2,9 @@
 
 namespace Soloist\Bundle\CalendarBundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType,
-    Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class EventType extends AbstractType
 {
@@ -70,8 +71,18 @@ class EventType extends AbstractType
                 'label'         => 'soloist.calendar.event.form.contactPostCode',
                 'required'      => false
             ))
-            ->add('image', 'file', array('required' => false))
+            ->add('image', 'file', array('data_class' => null, 'required'   => false))
         ;
+    }
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver
+            ->setDefaults(
+                array(
+                    'data_class' => 'Soloist\Bundle\CalendarBundle\Entity\Event'
+                )
+            );
     }
 
     /**
