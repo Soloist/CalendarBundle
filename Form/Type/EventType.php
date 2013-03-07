@@ -10,8 +10,8 @@ class EventType extends AbstractType
 {
     /**
      * Build the form
-     * @param  FormBuilderInterface $builder
-     * @param  array       $options
+     * @param FormBuilderInterface $builder
+     * @param array                $options
      *
      */
     public function buildForm(FormBuilderInterface $builder, array $options)

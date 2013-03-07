@@ -3,7 +3,6 @@
 namespace Soloist\Bundle\CalendarBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
 use FrequenceWeb\Bundle\DashboardBundle\Crud\CrudableInterface;
 /**
  * Soloist\Bundle\CalendarBundle\Entity\Calendar
@@ -50,7 +49,7 @@ class Calendar implements CrudableInterface
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string   $title
      * @return Calendar
      */
     public function setTitle($title)
@@ -73,7 +72,7 @@ class Calendar implements CrudableInterface
     /**
      * Set description
      *
-     * @param text $description
+     * @param  text     $description
      * @return Calendar
      */
     public function setDescription($description)
@@ -119,7 +118,7 @@ class Calendar implements CrudableInterface
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string   $slug
      * @return Calendar
      */
     public function setSlug($slug)

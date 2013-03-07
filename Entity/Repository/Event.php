@@ -20,7 +20,7 @@ class Event extends EntityRepository implements ProviderInterface
 
         $qb = $this->createQueryBuilder('e');
 
-        if(!empty($options['id']) && is_integer($options['id'])) {
+        if (!empty($options['id']) && is_integer($options['id'])) {
             $qb->where('e.calendar = ' . $options['id']);
         }
 
@@ -44,15 +44,14 @@ class Event extends EntityRepository implements ProviderInterface
             )
         );
 
-
         return $qb->getQuery()->getResult();
     }
 
     /**
      * Returns $nb events
      *
-     * @param null $calendar
-     * @param int $nb
+     * @param  null  $calendar
+     * @param  int   $nb
      * @return array
      */
     public function findForCalendar($calendar = null, $nb = 5)

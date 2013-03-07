@@ -6,15 +6,12 @@ use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 
 use FrequenceWeb\Bundle\DashboardBundle\Menu\Event\Configure;
 
-use Doctrine\ORM\EntityManager;
-
 class DashboardListener
 {
     /**
      * @var \Symfony\Bundle\FrameworkBundle\Translation\Translator
      */
     private $translator;
-
 
     public function __construct(Translator $translator)
     {

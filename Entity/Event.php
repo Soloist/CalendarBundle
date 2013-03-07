@@ -2,7 +2,6 @@
 
 namespace Soloist\Bundle\CalendarBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use FrequenceWeb\Bundle\DashboardBundle\Crud\CrudableInterface;
 use CalendR\Event\AbstractEvent;
 
@@ -142,7 +141,7 @@ class Event extends AbstractEvent implements CrudableInterface
     /**
      * Set startDate
      *
-     * @param date $startDate
+     * @param  date  $startDate
      * @return Event
      */
     public function setStartDate($startDate)
@@ -168,7 +167,7 @@ class Event extends AbstractEvent implements CrudableInterface
     /**
      * Set startTime
      *
-     * @param time $startTime
+     * @param  time  $startTime
      * @return Event
      */
     public function setStartTime($startTime)
@@ -191,7 +190,7 @@ class Event extends AbstractEvent implements CrudableInterface
     /**
      * Set endDate
      *
-     * @param date $endDate
+     * @param  date  $endDate
      * @return Event
      */
     public function setEndDate($endDate)
@@ -217,7 +216,7 @@ class Event extends AbstractEvent implements CrudableInterface
     /**
      * Set endTime
      *
-     * @param time $endTime
+     * @param  time  $endTime
      * @return Event
      */
     public function setEndTime($endTime)
@@ -240,7 +239,7 @@ class Event extends AbstractEvent implements CrudableInterface
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string $title
      * @return Event
      */
     public function setTitle($title)
@@ -263,7 +262,7 @@ class Event extends AbstractEvent implements CrudableInterface
     /**
      * Set description
      *
-     * @param text $description
+     * @param  text  $description
      * @return Event
      */
     public function setDescription($description)
@@ -286,7 +285,7 @@ class Event extends AbstractEvent implements CrudableInterface
     /**
      * Set contactName
      *
-     * @param string $contactName
+     * @param  string $contactName
      * @return Event
      */
     public function setContactName($contactName)
@@ -309,7 +308,7 @@ class Event extends AbstractEvent implements CrudableInterface
     /**
      * Set contactEmail
      *
-     * @param string $contactEmail
+     * @param  string $contactEmail
      * @return Event
      */
     public function setContactEmail($contactEmail)
@@ -332,7 +331,7 @@ class Event extends AbstractEvent implements CrudableInterface
     /**
      * Set contactAddress
      *
-     * @param string $contactAddress
+     * @param  string $contactAddress
      * @return Event
      */
     public function setContactAddress($contactAddress)
@@ -355,7 +354,7 @@ class Event extends AbstractEvent implements CrudableInterface
     /**
      * Set contactCity
      *
-     * @param string $contactCity
+     * @param  string $contactCity
      * @return Event
      */
     public function setContactCity($contactCity)
@@ -378,7 +377,7 @@ class Event extends AbstractEvent implements CrudableInterface
     /**
      * Set contactPostCode
      *
-     * @param string $contactPostCode
+     * @param  string $contactPostCode
      * @return Event
      */
     public function setContactPostCode($contactPostCode)
@@ -401,7 +400,7 @@ class Event extends AbstractEvent implements CrudableInterface
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string   $slug
      * @return Calendar
      */
     public function setSlug($slug)
@@ -470,6 +469,7 @@ class Event extends AbstractEvent implements CrudableInterface
         if ($time = $this->startTime) {
             $date->setTime($time->format('H'), $time->format('i'));
         }
+
         return $date;
     }
 
@@ -478,7 +478,7 @@ class Event extends AbstractEvent implements CrudableInterface
      */
     public function getEnd()
     {
-        if(!is_null($this->endDate)) {
+        if (!is_null($this->endDate)) {
             $date = clone $this->endDate;
             if (!is_null($date) && $time = $this->endTime) {
                 $date->setTime($time->format('H'), $time->format('i'));
@@ -486,6 +486,7 @@ class Event extends AbstractEvent implements CrudableInterface
 
             return $date;
         }
+
         return $this->getBegin();
     }
 
@@ -626,7 +627,7 @@ class Event extends AbstractEvent implements CrudableInterface
     }
 
     /**
-     * @param  \DateTime|string $time
+     * @param \DateTime|string $time
      *
      * @return \DateTime
      */

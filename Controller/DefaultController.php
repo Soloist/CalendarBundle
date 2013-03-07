@@ -2,95 +2,94 @@
 
 namespace Soloist\Bundle\CalendarBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template,
-    Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-use Soloist\Bundle\CalendarBundle\Entity\Calendar,
-    Soloist\Bundle\CalendarBundle\Entity\Event;
+use Soloist\Bundle\CalendarBundle\Entity\Calendar;
+use Soloist\Bundle\CalendarBundle\Entity\Event;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
     /**
      * Show a list of all calendars available
      *
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function listCalendarsAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $calendars = $this->getDoctrine()->getManager()->getRepository('SoloistCalendarBundle:Calendar')->findAll();
 
-        $calendars = $em->getRepository('SoloistCalendarBundle:Calendar')->findAll();
-
-        return $this->render('SoloistCalendarBundle:Default:listCalendars.html.twig', array(
-            'calendars' => $calendars
-        ));
+        return $this->render('SoloistCalendarBundle:Default:listCalendars.html.twig', array('calendars' => $calendars));
     }
 
     /**
      * Show a month formated as a calendar
      * Show only events who are avalaible on the precised calendar
      *
-     * @param  integer   $year
-     * @param  integer   $month
-     * @param  Calendar $calendar
-     * @return Response
+     * @param int      $year
+     * @param int      $month
+     * @param Calendar $calendar
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showMonthAction($year, $month, Calendar $calendar=null)
     {
         $month = $this->get('calendr')->getMonth($year, $month);
 
         $options = array();
-        if(!is_null($calendar)) {
+        if (null !== $calendar) {
             $options['id'] = $calendar->getId();
         }
 
-
-        return $this->render('SoloistCalendarBundle:Default:showMonth.html.twig', array(
-            'month'     => $month,
-            'options'   => $options,
-            'calendar'  => $calendar
-        ));
+        return $this->render(
+            'SoloistCalendarBundle:Default:showMonth.html.twig',
+            array(
+                'month'     => $month,
+                'options'   => $options,
+                'calendar'  => $calendar
+            )
+        );
     }
 
     /**
      * Show an event
      *
-     * @param  Event  $event
-     * @return Response
+     * @param Event $event
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showEventAction(Event $event)
     {
-        return $this->render('SoloistCalendarBundle:Default:showEvent.html.twig', array(
-            'event'     => $event
-        ));
+        return $this->render('SoloistCalendarBundle:Default:showEvent.html.twig', array('event' => $event));
     }
 
     /**
-     * @Template()
-     * @param null $calendar
-     * @param $nb
-     * @return array
+     * @param Calendar $calendar
+     * @param int      $nb
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showUpcomingsAction($calendar = null, $nb)
     {
-        return array(
-            'events' => $this->getDoctrine()->getRepository('SoloistCalendarBundle:Event')->findForCalendar($calendar, $nb)
-        );
+        $events = $this->getDoctrine()->getRepository('SoloistCalendarBundle:Event')->findForCalendar($calendar, $nb);
+
+        return $this->render('SoloistCalendarBundle:Default:showUpcomings.html.twig', array('events' => $events));
     }
 
     /**
-     * @Template()
-     * @param  Calendar $calendar
-     * @return array
+     * @param Calendar $calendar
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showCalendarAction(Calendar $calendar)
     {
         $month = $this->get('calendr')->getMonth(date('Y'), date('n'));
 
-        return array(
-            'options'   => array('id' => $calendar->getId()),
-            'calendar'  => $calendar,
-            'month'     => $month
+        return $this->render(
+            'SoloistCalendarBundle:Default:showCalendar.html.twig',
+            array(
+                'options'   => array('id' => $calendar->getId()),
+                'calendar'  => $calendar,
+                'month'     => $month
+            )
         );
     }
 
